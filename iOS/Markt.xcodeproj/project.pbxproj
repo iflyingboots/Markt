@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E16E4F3B62743AB957F6209 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF182A668664CD0BC8C06AA /* libPods.a */; };
+		CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DB19234C8000D37DEE /* MKDateManager.m */; };
+		CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */; };
+		CDA9B3E119236B7900D37DEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9B3E019236B7900D37DEE /* CoreLocation.framework */; };
+		CDA9B3E319236B8200D37DEE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9B3E219236B8100D37DEE /* CoreBluetooth.framework */; };
+		CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDB2BB71922C33A00DF1C7F /* MKMeasureViewController.m */; };
+		CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDB2BB81922C33A00DF1C7F /* MKMeasureViewController.xib */; };
+		CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDB2BBC1922D09500DF1C7F /* MKFileManager.m */; };
+		CDF40226191AB7F700B7A5FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40225191AB7F700B7A5FF /* Foundation.framework */; };
+		CDF40228191AB7F700B7A5FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40227191AB7F700B7A5FF /* CoreGraphics.framework */; };
+		CDF4022A191AB7F700B7A5FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40229191AB7F700B7A5FF /* UIKit.framework */; };
+		CDF40230191AB7F700B7A5FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF4022E191AB7F700B7A5FF /* InfoPlist.strings */; };
+		CDF40232191AB7F700B7A5FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF40231191AB7F700B7A5FF /* main.m */; };
+		CDF40236191AB7F700B7A5FF /* MKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF40235191AB7F700B7A5FF /* MKAppDelegate.m */; };
+		CDF40238191AB7F700B7A5FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDF40237191AB7F700B7A5FF /* Images.xcassets */; };
+		CDF4023F191AB7F700B7A5FF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF4023E191AB7F700B7A5FF /* XCTest.framework */; };
+		CDF40240191AB7F700B7A5FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40225191AB7F700B7A5FF /* Foundation.framework */; };
+		CDF40241191AB7F700B7A5FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40229191AB7F700B7A5FF /* UIKit.framework */; };
+		CDF40249191AB7F700B7A5FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF40247191AB7F700B7A5FF /* InfoPlist.strings */; };
+		CDF4024B191AB7F700B7A5FF /* MarktTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4024A191AB7F700B7A5FF /* MarktTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CDF40242191AB7F700B7A5FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDF4021A191AB7F700B7A5FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDF40221191AB7F700B7A5FF;
+			remoteInfo = Markt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		4FF182A668664CD0BC8C06AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA9B3DA19234C8000D37DEE /* MKDateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDateManager.h; sourceTree = "<group>"; };
+		CDA9B3DB19234C8000D37DEE /* MKDateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDateManager.m; sourceTree = "<group>"; };
+		CDA9B3DD19235D5900D37DEE /* MKiBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiBeaconManager.h; sourceTree = "<group>"; };
+		CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiBeaconManager.m; sourceTree = "<group>"; };
+		CDA9B3E019236B7900D37DEE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CDA9B3E219236B8100D37DEE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CDDB2BB61922C33A00DF1C7F /* MKMeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKMeasureViewController.h; path = Controllers/MKMeasureViewController.h; sourceTree = "<group>"; };
+		CDDB2BB71922C33A00DF1C7F /* MKMeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKMeasureViewController.m; path = Controllers/MKMeasureViewController.m; sourceTree = "<group>"; };
+		CDDB2BB81922C33A00DF1C7F /* MKMeasureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKMeasureViewController.xib; path = Controllers/MKMeasureViewController.xib; sourceTree = "<group>"; };
+		CDDB2BBB1922D09500DF1C7F /* MKFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKFileManager.h; sourceTree = "<group>"; };
+		CDDB2BBC1922D09500DF1C7F /* MKFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKFileManager.m; sourceTree = "<group>"; };
+		CDF40222191AB7F700B7A5FF /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF40225191AB7F700B7A5FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDF40227191AB7F700B7A5FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CDF40229191AB7F700B7A5FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CDF4022D191AB7F700B7A5FF /* Markt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Markt-Info.plist"; sourceTree = "<group>"; };
+		CDF4022F191AB7F700B7A5FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CDF40231191AB7F700B7A5FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDF40233191AB7F700B7A5FF /* Markt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Markt-Prefix.pch"; sourceTree = "<group>"; };
+		CDF40234191AB7F700B7A5FF /* MKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKAppDelegate.h; sourceTree = "<group>"; };
+		CDF40235191AB7F700B7A5FF /* MKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKAppDelegate.m; sourceTree = "<group>"; };
+		CDF40237191AB7F700B7A5FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CDF4023D191AB7F700B7A5FF /* MarktTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarktTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF4023E191AB7F700B7A5FF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CDF40246191AB7F700B7A5FF /* MarktTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarktTests-Info.plist"; sourceTree = "<group>"; };
+		CDF40248191AB7F700B7A5FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CDF4024A191AB7F700B7A5FF /* MarktTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarktTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDF4021F191AB7F700B7A5FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDA9B3E319236B8200D37DEE /* CoreBluetooth.framework in Frameworks */,
+				CDA9B3E119236B7900D37DEE /* CoreLocation.framework in Frameworks */,
+				CDF40228191AB7F700B7A5FF /* CoreGraphics.framework in Frameworks */,
+				CDF4022A191AB7F700B7A5FF /* UIKit.framework in Frameworks */,
+				CDF40226191AB7F700B7A5FF /* Foundation.framework in Frameworks */,
+				8E16E4F3B62743AB957F6209 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF4023A191AB7F700B7A5FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF4023F191AB7F700B7A5FF /* XCTest.framework in Frameworks */,
+				CDF40241191AB7F700B7A5FF /* UIKit.framework in Frameworks */,
+				CDF40240191AB7F700B7A5FF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDDB2BB51922C23A00DF1C7F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDDB2BB61922C33A00DF1C7F /* MKMeasureViewController.h */,
+				CDDB2BB71922C33A00DF1C7F /* MKMeasureViewController.m */,
+				CDDB2BB81922C33A00DF1C7F /* MKMeasureViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CDF40219191AB7F700B7A5FF = {
+			isa = PBXGroup;
+			children = (
+				CDF4022B191AB7F700B7A5FF /* Markt */,
+				CDF40244191AB7F700B7A5FF /* MarktTests */,
+				CDF40224191AB7F700B7A5FF /* Frameworks */,
+				CDF40223191AB7F700B7A5FF /* Products */,
+				2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		CDF40223191AB7F700B7A5FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDF40222191AB7F700B7A5FF /* Markt.app */,
+				CDF4023D191AB7F700B7A5FF /* MarktTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDF40224191AB7F700B7A5FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDA9B3E219236B8100D37DEE /* CoreBluetooth.framework */,
+				CDA9B3E019236B7900D37DEE /* CoreLocation.framework */,
+				CDF40225191AB7F700B7A5FF /* Foundation.framework */,
+				CDF40227191AB7F700B7A5FF /* CoreGraphics.framework */,
+				CDF40229191AB7F700B7A5FF /* UIKit.framework */,
+				CDF4023E191AB7F700B7A5FF /* XCTest.framework */,
+				4FF182A668664CD0BC8C06AA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF4022B191AB7F700B7A5FF /* Markt */ = {
+			isa = PBXGroup;
+			children = (
+				CDDB2BB51922C23A00DF1C7F /* Controllers */,
+				CDF40234191AB7F700B7A5FF /* MKAppDelegate.h */,
+				CDF40235191AB7F700B7A5FF /* MKAppDelegate.m */,
+				CDF40237191AB7F700B7A5FF /* Images.xcassets */,
+				CDF4022C191AB7F700B7A5FF /* Supporting Files */,
+				CDDB2BBB1922D09500DF1C7F /* MKFileManager.h */,
+				CDDB2BBC1922D09500DF1C7F /* MKFileManager.m */,
+				CDA9B3DA19234C8000D37DEE /* MKDateManager.h */,
+				CDA9B3DB19234C8000D37DEE /* MKDateManager.m */,
+				CDA9B3DD19235D5900D37DEE /* MKiBeaconManager.h */,
+				CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */,
+			);
+			path = Markt;
+			sourceTree = "<group>";
+		};
+		CDF4022C191AB7F700B7A5FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF4022D191AB7F700B7A5FF /* Markt-Info.plist */,
+				CDF4022E191AB7F700B7A5FF /* InfoPlist.strings */,
+				CDF40231191AB7F700B7A5FF /* main.m */,
+				CDF40233191AB7F700B7A5FF /* Markt-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDF40244191AB7F700B7A5FF /* MarktTests */ = {
+			isa = PBXGroup;
+			children = (
+				CDF4024A191AB7F700B7A5FF /* MarktTests.m */,
+				CDF40245191AB7F700B7A5FF /* Supporting Files */,
+			);
+			path = MarktTests;
+			sourceTree = "<group>";
+		};
+		CDF40245191AB7F700B7A5FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF40246191AB7F700B7A5FF /* MarktTests-Info.plist */,
+				CDF40247191AB7F700B7A5FF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDF40221191AB7F700B7A5FF /* Markt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF4024E191AB7F700B7A5FF /* Build configuration list for PBXNativeTarget "Markt" */;
+			buildPhases = (
+				926612BD358249ACB5BD5F44 /* Check Pods Manifest.lock */,
+				CDF4021E191AB7F700B7A5FF /* Sources */,
+				CDF4021F191AB7F700B7A5FF /* Frameworks */,
+				CDF40220191AB7F700B7A5FF /* Resources */,
+				AF153BFD85A946A583DBF36B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Markt;
+			productName = Markt;
+			productReference = CDF40222191AB7F700B7A5FF /* Markt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDF4023C191AB7F700B7A5FF /* MarktTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF40251191AB7F700B7A5FF /* Build configuration list for PBXNativeTarget "MarktTests" */;
+			buildPhases = (
+				CDF40239191AB7F700B7A5FF /* Sources */,
+				CDF4023A191AB7F700B7A5FF /* Frameworks */,
+				CDF4023B191AB7F700B7A5FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDF40243191AB7F700B7A5FF /* PBXTargetDependency */,
+			);
+			name = MarktTests;
+			productName = MarktTests;
+			productReference = CDF4023D191AB7F700B7A5FF /* MarktTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDF4021A191AB7F700B7A5FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = SPS;
+				TargetAttributes = {
+					CDF4023C191AB7F700B7A5FF = {
+						TestTargetID = CDF40221191AB7F700B7A5FF;
+					};
+				};
+			};
+			buildConfigurationList = CDF4021D191AB7F700B7A5FF /* Build configuration list for PBXProject "Markt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CDF40219191AB7F700B7A5FF;
+			productRefGroup = CDF40223191AB7F700B7A5FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDF40221191AB7F700B7A5FF /* Markt */,
+				CDF4023C191AB7F700B7A5FF /* MarktTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDF40220191AB7F700B7A5FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */,
+				CDF40230191AB7F700B7A5FF /* InfoPlist.strings in Resources */,
+				CDF40238191AB7F700B7A5FF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF4023B191AB7F700B7A5FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF40249191AB7F700B7A5FF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		926612BD358249ACB5BD5F44 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF153BFD85A946A583DBF36B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDF4021E191AB7F700B7A5FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF40236191AB7F700B7A5FF /* MKAppDelegate.m in Sources */,
+				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
+				CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */,
+				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
+				CDF40232191AB7F700B7A5FF /* main.m in Sources */,
+				CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF40239191AB7F700B7A5FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF4024B191AB7F700B7A5FF /* MarktTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDF40243191AB7F700B7A5FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDF40221191AB7F700B7A5FF /* Markt */;
+			targetProxy = CDF40242191AB7F700B7A5FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CDF4022E191AB7F700B7A5FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDF4022F191AB7F700B7A5FF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CDF40247191AB7F700B7A5FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDF40248191AB7F700B7A5FF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CDF4024C191AB7F700B7A5FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CDF4024D191AB7F700B7A5FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDF4024F191AB7F700B7A5FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
+				INFOPLIST_FILE = "Markt/Markt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CDF40250191AB7F700B7A5FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
+				INFOPLIST_FILE = "Markt/Markt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CDF40252191AB7F700B7A5FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Markt.app/Markt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MarktTests/MarktTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CDF40253191AB7F700B7A5FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Markt.app/Markt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
+				INFOPLIST_FILE = "MarktTests/MarktTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDF4021D191AB7F700B7A5FF /* Build configuration list for PBXProject "Markt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF4024C191AB7F700B7A5FF /* Debug */,
+				CDF4024D191AB7F700B7A5FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF4024E191AB7F700B7A5FF /* Build configuration list for PBXNativeTarget "Markt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF4024F191AB7F700B7A5FF /* Debug */,
+				CDF40250191AB7F700B7A5FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF40251191AB7F700B7A5FF /* Build configuration list for PBXNativeTarget "MarktTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF40252191AB7F700B7A5FF /* Debug */,
+				CDF40253191AB7F700B7A5FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDF4021A191AB7F700B7A5FF /* Project object */;
+}
