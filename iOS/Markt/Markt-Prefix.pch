@@ -10,6 +10,8 @@
 #warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
+#define CELL_NUM 10
+
 #define UUID1 @"69981703-0B5C-471F-8D9E-BFB42C8F2106" // iPad 1
 #define UUID2 @"01C1B121-291A-4FA2-AD93-4A67F9397517" // iPad 2
 #define UUID3 @"5C08289D-BF15-47F8-8A8A-FB4917598F33" // Abhi's iPhone

@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8E16E4F3B62743AB957F6209 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF182A668664CD0BC8C06AA /* libPods.a */; };
+		CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E65192A63D300DB96B2 /* MKScanViewController.m */; };
+		CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD242E66192A63D300DB96B2 /* MKScanViewController.xib */; };
+		CD242E6B192A6B7E00DB96B2 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD242E6A192A6B7E00DB96B2 /* location@2x.png */; };
+		CD242E6D192A6C6F00DB96B2 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD242E6C192A6C6F00DB96B2 /* search@2x.png */; };
+		CD242E70192A70C800DB96B2 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = CD242E6E192A70C800DB96B2 /* circle.png */; };
+		CD242E71192A70C800DB96B2 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD242E6F192A70C800DB96B2 /* circle@2x.png */; };
+		CD242E75192A764B00DB96B2 /* MKBayesian.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E74192A764B00DB96B2 /* MKBayesian.m */; };
+		CD242E87192A7BFC00DB96B2 /* iPad1_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */; };
+		CD242E88192A7BFC00DB96B2 /* iPad2_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */; };
+		CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */; };
+		CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E8B192AAF4600DB96B2 /* MKCellTests.m */; };
 		CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DB19234C8000D37DEE /* MKDateManager.m */; };
 		CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */; };
 		CDA9B3E119236B7900D37DEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9B3E019236B7900D37DEE /* CoreLocation.framework */; };
@@ -27,6 +38,8 @@
 		CDF40241191AB7F700B7A5FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF40229191AB7F700B7A5FF /* UIKit.framework */; };
 		CDF40249191AB7F700B7A5FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF40247191AB7F700B7A5FF /* InfoPlist.strings */; };
 		CDF4024B191AB7F700B7A5FF /* MarktTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4024A191AB7F700B7A5FF /* MarktTests.m */; };
+		CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF8309A1928A9760086097E /* MKLocationViewController.m */; };
+		CDF8309D1928A9760086097E /* MKLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF8309B1928A9760086097E /* MKLocationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +55,20 @@
 /* Begin PBXFileReference section */
 		2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4FF182A668664CD0BC8C06AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD242E64192A63D300DB96B2 /* MKScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKScanViewController.h; path = Controllers/MKScanViewController.h; sourceTree = "<group>"; };
+		CD242E65192A63D300DB96B2 /* MKScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKScanViewController.m; path = Controllers/MKScanViewController.m; sourceTree = "<group>"; };
+		CD242E66192A63D300DB96B2 /* MKScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKScanViewController.xib; path = Controllers/MKScanViewController.xib; sourceTree = "<group>"; };
+		CD242E6A192A6B7E00DB96B2 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		CD242E6C192A6C6F00DB96B2 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		CD242E6E192A70C800DB96B2 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		CD242E6F192A70C800DB96B2 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
+		CD242E73192A764B00DB96B2 /* MKBayesian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKBayesian.h; path = Models/MKBayesian.h; sourceTree = "<group>"; };
+		CD242E74192A764B00DB96B2 /* MKBayesian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKBayesian.m; path = Models/MKBayesian.m; sourceTree = "<group>"; };
+		CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPad1_dist.txt; sourceTree = "<group>"; };
+		CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPad2_dist.txt; sourceTree = "<group>"; };
+		CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPhone1_dist.txt; sourceTree = "<group>"; };
+		CD242E8A192AAF4600DB96B2 /* MKCellTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCellTests.h; path = Models/MKCellTests.h; sourceTree = "<group>"; };
+		CD242E8B192AAF4600DB96B2 /* MKCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCellTests.m; path = Models/MKCellTests.m; sourceTree = "<group>"; };
 		CDA9B3DA19234C8000D37DEE /* MKDateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDateManager.h; sourceTree = "<group>"; };
 		CDA9B3DB19234C8000D37DEE /* MKDateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDateManager.m; sourceTree = "<group>"; };
 		CDA9B3DD19235D5900D37DEE /* MKiBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiBeaconManager.h; sourceTree = "<group>"; };
@@ -69,6 +96,9 @@
 		CDF40246191AB7F700B7A5FF /* MarktTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarktTests-Info.plist"; sourceTree = "<group>"; };
 		CDF40248191AB7F700B7A5FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDF4024A191AB7F700B7A5FF /* MarktTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarktTests.m; sourceTree = "<group>"; };
+		CDF830991928A9760086097E /* MKLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKLocationViewController.h; path = Controllers/MKLocationViewController.h; sourceTree = "<group>"; };
+		CDF8309A1928A9760086097E /* MKLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKLocationViewController.m; path = Controllers/MKLocationViewController.m; sourceTree = "<group>"; };
+		CDF8309B1928A9760086097E /* MKLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKLocationViewController.xib; path = Controllers/MKLocationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +128,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD242E69192A6B7300DB96B2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CD242E6E192A70C800DB96B2 /* circle.png */,
+				CD242E6F192A70C800DB96B2 /* circle@2x.png */,
+				CD242E6C192A6C6F00DB96B2 /* search@2x.png */,
+				CD242E6A192A6B7E00DB96B2 /* location@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CD242E72192A762600DB96B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD242E73192A764B00DB96B2 /* MKBayesian.h */,
+				CD242E74192A764B00DB96B2 /* MKBayesian.m */,
+				CD242E8A192AAF4600DB96B2 /* MKCellTests.h */,
+				CD242E8B192AAF4600DB96B2 /* MKCellTests.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CD242E7D192A7B2900DB96B2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */,
+				CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */,
+				CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */,
+			);
+			name = Data;
+			path = Markt/Data;
+			sourceTree = "<group>";
+		};
 		CDDB2BB51922C23A00DF1C7F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CDDB2BB61922C33A00DF1C7F /* MKMeasureViewController.h */,
 				CDDB2BB71922C33A00DF1C7F /* MKMeasureViewController.m */,
 				CDDB2BB81922C33A00DF1C7F /* MKMeasureViewController.xib */,
+				CDF830991928A9760086097E /* MKLocationViewController.h */,
+				CDF8309A1928A9760086097E /* MKLocationViewController.m */,
+				CDF8309B1928A9760086097E /* MKLocationViewController.xib */,
+				CD242E64192A63D300DB96B2 /* MKScanViewController.h */,
+				CD242E65192A63D300DB96B2 /* MKScanViewController.m */,
+				CD242E66192A63D300DB96B2 /* MKScanViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -111,6 +180,7 @@
 		CDF40219191AB7F700B7A5FF = {
 			isa = PBXGroup;
 			children = (
+				CD242E7D192A7B2900DB96B2 /* Data */,
 				CDF4022B191AB7F700B7A5FF /* Markt */,
 				CDF40244191AB7F700B7A5FF /* MarktTests */,
 				CDF40224191AB7F700B7A5FF /* Frameworks */,
@@ -145,6 +215,7 @@
 		CDF4022B191AB7F700B7A5FF /* Markt */ = {
 			isa = PBXGroup;
 			children = (
+				CD242E72192A762600DB96B2 /* Models */,
 				CDDB2BB51922C23A00DF1C7F /* Controllers */,
 				CDF40234191AB7F700B7A5FF /* MKAppDelegate.h */,
 				CDF40235191AB7F700B7A5FF /* MKAppDelegate.m */,
@@ -156,6 +227,7 @@
 				CDA9B3DB19234C8000D37DEE /* MKDateManager.m */,
 				CDA9B3DD19235D5900D37DEE /* MKiBeaconManager.h */,
 				CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */,
+				CD242E69192A6B7300DB96B2 /* Images */,
 			);
 			path = Markt;
 			sourceTree = "<group>";
@@ -268,8 +340,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */,
+				CDF8309D1928A9760086097E /* MKLocationViewController.xib in Resources */,
+				CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */,
+				CD242E6D192A6C6F00DB96B2 /* search@2x.png in Resources */,
+				CD242E71192A70C800DB96B2 /* circle@2x.png in Resources */,
+				CD242E88192A7BFC00DB96B2 /* iPad2_dist.txt in Resources */,
+				CD242E6B192A6B7E00DB96B2 /* location@2x.png in Resources */,
+				CD242E87192A7BFC00DB96B2 /* iPad1_dist.txt in Resources */,
 				CDF40230191AB7F700B7A5FF /* InfoPlist.strings in Resources */,
+				CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */,
 				CDF40238191AB7F700B7A5FF /* Images.xcassets in Resources */,
+				CD242E70192A70C800DB96B2 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,9 +403,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDF40236191AB7F700B7A5FF /* MKAppDelegate.m in Sources */,
+				CD242E75192A764B00DB96B2 /* MKBayesian.m in Sources */,
+				CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */,
 				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
 				CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */,
+				CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */,
 				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
+				CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */,
 				CDF40232191AB7F700B7A5FF /* main.m in Sources */,
 				CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */,
 			);

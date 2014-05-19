@@ -8,6 +8,8 @@
 
 #import "MKAppDelegate.h"
 #import "MKMeasureViewController.h"
+#import "MKLocationViewController.h"
+#import "MKScanViewController.h"
 
 @implementation MKAppDelegate
 
@@ -17,8 +19,20 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    MKMeasureViewController *mainVC = [[MKMeasureViewController alloc] init];
-    self.window.rootViewController = mainVC;
+    MKLocationViewController *locationVC = [[MKLocationViewController alloc] init];
+    MKScanViewController *scanVC = [[MKScanViewController alloc] init];
+    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+    [tabBarVC setViewControllers:@[locationVC, scanVC]];
+    tabBarVC.view.tintColor = [UIColor orangeColor];
+    
+    locationVC.tabBarItem.image = [UIImage imageNamed:@"location"];
+    locationVC.title = @"Location";
+    scanVC.tabBarItem.image = [UIImage imageNamed:@"search"];
+    scanVC.title = @"Scan";
+    
+    [self.window addSubview:tabBarVC.view];
+    self.window.rootViewController = tabBarVC;
+//    self.window.rootViewController = measureVC;
     [self.window makeKeyAndVisible];
     return YES;
 }
