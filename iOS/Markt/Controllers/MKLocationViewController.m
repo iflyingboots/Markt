@@ -18,6 +18,7 @@
 @property (strong, nonatomic) MKiBeaconManager *ibeaconRegioniPad2;
 @property (strong, nonatomic) MKiBeaconManager *ibeaconRegioniPhone1;
 @property (strong, nonatomic) MKBayesian *bayesian;
+@property (strong, nonatomic) NSMutableArray *RSSIArray;
 @end
 
 @implementation MKLocationViewController
@@ -41,7 +42,8 @@
     [self setupiBeaconData];
     [self addiBeacons];
     self.bayesian = [MKBayesian sharedManager];
-    [self testBayesian];
+    self.RSSIArray = [[NSMutableArray alloc] initWithObjects:@0, @0, @0, nil];
+//    [self testBayesian];
 
 }
 
@@ -55,24 +57,37 @@
 - (void)testBayesian
 {
     NSArray *testDataCell1 = [MKCellTests generateTestDataCell1];
-    for (int i = 0; i < [testDataCell1 count]; i++) {
-        NSArray *newPrior = [self.bayesian estimateCellWithRSSIs:testDataCell1[i]];
-        [self getEstimatedCell:newPrior];
+    for (int i = 0; i < [testDataCell1 count]/5; i++) {
+        [self.bayesian estimateCellWithRSSIs:testDataCell1[i]];
+        NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
+        NSLog(@"%@", probsCellsArray);
     }
-    
-    
 }
 
-- (void)getEstimatedCell:(NSArray *)probs
+- (NSInteger)deviceIndexWithMaxRSSI
 {
-    NSAssert([probs count] == 3, @"Probs count should be 3");
-    for (int i = 0; i < 3; i++) {
-        NSNumber *maxProb = [probs[i] valueForKeyPath:@"@max.self"];
-        NSUInteger index = [probs[i] indexOfObject:maxProb];
-        NSUInteger cell = index + 1;
-        NSLog(@"Device%d prob: %f -> cell %d", i, [maxProb floatValue], cell);
-    }
-    NSLog(@"\n");
+    NSNumber *max = [self.RSSIArray valueForKeyPath:@"@max.self"];
+    return [self.RSSIArray indexOfObject:max];
+}
+
+- (void)updateCellAccordingToHighestRSSI
+{
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        //Background Thread
+        [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
+        NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
+        NSInteger highestRSSIDevice = [self deviceIndexWithMaxRSSI];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            //Run UI Updates
+            self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", [probsCellsArray[highestRSSIDevice][1] intValue]];
+            self.debugTextView.text = [NSString
+                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]",
+                                       probsCellsArray[0][0], probsCellsArray[0][1],
+                                       probsCellsArray[1][0], probsCellsArray[1][1],
+                                       probsCellsArray[2][0], probsCellsArray[2][1]];
+        });
+    });
 }
 
 #pragma mark - iBeacon
@@ -104,6 +119,13 @@
     }
 }
 
+#pragma mark - Actions
+- (IBAction)resetPriorsClicked:(id)sender
+{
+    [self.bayesian initPriors];
+    NSLog(@"%@", self.bayesian.priors);
+}
+
 #pragma mark - Services
 - (void)setiBeacnInfo:(NSDictionary *)iBeaconInfo rssi:(NSInteger)rssi
 {
@@ -111,22 +133,49 @@
     [self setValue:text forKeyPath:iBeaconInfo[@"label"]];
 }
 
+- (void)updateRSSIArrayValue:(CLBeacon *)beacon
+{
+    NSString *uuid = beacon.proximityUUID.UUIDString;
+    NSInteger rssiTrimmed = beacon.rssi == 0 ? -99 : beacon.rssi;
+    NSNumber *rssi = [NSNumber numberWithInteger:rssiTrimmed];
+    if ([uuid isEqualToString:UUID1]) {
+        [self.RSSIArray setObject:rssi atIndexedSubscript:0];
+        return;
+    }
+    
+    if ([uuid isEqualToString:UUID2]) {
+        [self.RSSIArray setObject:rssi atIndexedSubscript:1];
+        return;
+    }
+    
+    if ([uuid isEqualToString:UUID3]) {
+        [self.RSSIArray setObject:rssi atIndexedSubscript:2];
+        return;
+    }
+}
 
 #pragma mark - Delegate
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
-    NSLog(@"enter: %@", region);
+    self.debugTextView.text = [NSString stringWithFormat:@"Entered: %@", region];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     if ([beacons count] == 0)
         return;
+    
     for (CLBeacon *beacon in beacons) {
+        // change the labels
         NSDictionary *beaconData = self.ibeaconData[beacon.proximityUUID.UUIDString];
         [self setiBeacnInfo:beaconData rssi:beacon.rssi];
+        // update RSSI array
+        [self updateRSSIArrayValue:beacon];
+        self.debugTextView.text = [NSString stringWithFormat:@"[%@, %@, %@]", self.RSSIArray[0], self.RSSIArray[1], self.RSSIArray[2]];
     }
+    [self updateCellAccordingToHighestRSSI];
 }
+
 
 
 @end

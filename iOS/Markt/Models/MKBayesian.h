@@ -13,5 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *priors;
 
 + (instancetype)sharedManager;
+- (void)initPriors;
 - (NSArray *)estimateCellWithRSSIs:(NSArray *)RSSIs;
+- (NSArray *)getEstimatedProbsAndCells;
 @end

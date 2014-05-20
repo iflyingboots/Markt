@@ -11,6 +11,9 @@
 #define IPAD2_DIST_FILE @"iPad2_dist"
 #define IPHONE1_DIST_FILE @"iPhone1_dist"
 
+#define MEAN 0
+#define STD  1
+
 #import "MKBayesian.h"
 
 @interface MKBayesian ()
@@ -20,7 +23,11 @@
 @implementation MKBayesian
 
 
-// singleton
+/**
+ *  Singleton
+ *
+ *  @return instancetype
+ */
 + (instancetype)sharedManager
 {
     static id _sharedManager = nil;
@@ -44,6 +51,15 @@
     return self;
 }
 
+/**
+ *  Normal Distribution Probability Density Function
+ *
+ *  @param x       Input x value
+ *  @param mean    Mean
+ *  @param std_dev Standard Deviation
+ *
+ *  @return probablity
+ */
 float normpdf(float x, float mean, float std_dev) {
     return(1.0 / (sqrtf(2 * M_PI) * std_dev) * expf(- (x - mean) * (x - mean) / (2 * std_dev * std_dev)));
 }
@@ -55,10 +71,17 @@ float normpdf(float x, float mean, float std_dev) {
     NSAssert(cell <= CELL_NUM, @"cell must less than CELL_NUM");
     // cell [1, 10]
     cell = cell - 1;
-    return normpdf((float)RSSI, [dist[cell][0] floatValue], [dist[cell][1] floatValue]);
+    return normpdf((float)RSSI, [dist[cell][MEAN] floatValue], [dist[cell][STD] floatValue]);
 }
 
-
+/**
+ *  Returns the dot product of two length-equal vectors
+ *
+ *  @param vec1
+ *  @param vec2
+ *
+ *  @return dot product
+ */
 - (NSMutableArray *)dotProductVec1:(NSMutableArray *)vec1 andVec2:(NSMutableArray*)vec2
 {
     NSAssert([vec1 count] == [vec2 count], @"The vector lengths must be equal");
@@ -71,7 +94,14 @@ float normpdf(float x, float mean, float std_dev) {
     return result;
 }
 
-//Calculate probs (10 cells) by given RSSI and one device (AP)
+/**
+ *  Calculates probs (10 cells) by given RSSI and one device (AP)
+ *
+ *  @param RSSI integer
+ *  @param dist distribution of one AP (device)
+ *
+ *  @return cell propbalities according to given distribution
+ */
 - (NSArray *)calculateCellProbWithRSSI:(NSInteger)RSSI andDevice:(NSArray *)dist
 {
     NSAssert([dist count] == CELL_NUM, @"The number of device distributions must be equal to CELL_NUM");
@@ -86,6 +116,14 @@ float normpdf(float x, float mean, float std_dev) {
 }
 
 
+/**
+ *  Estimates which cell you are in
+ *  according to the given three RSSI values
+ *
+ *  @param RSSIs array
+ *
+ *  @return nomalized posterior probabilities (values are used for the next prior probablities)
+ */
 - (NSArray *)estimateCellWithRSSIs:(NSArray *)RSSIs
 {
     // RSSIs = [iPad1, iPad2, iPhone1]
@@ -120,6 +158,9 @@ float normpdf(float x, float mean, float std_dev) {
     return posteriors;
 }
 
+/**
+ *  Initializes all prior probabilities
+ */
 - (void)initPriors
 {
     if (self.priors == nil) {
@@ -129,7 +170,14 @@ float normpdf(float x, float mean, float std_dev) {
         }
     }
 }
- 
+
+/**
+ *  Reads access point distribution from txt file
+ *
+ *  @param filename
+ *
+ *  @return ditribution array (10 items, each contains mean and std)
+ */
 - (NSArray *)readDistribution:(NSString *)filename
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"txt"];
@@ -151,6 +199,33 @@ float normpdf(float x, float mean, float std_dev) {
     assert([distArray count] == 10);
     
     return  (NSArray *)distArray;
+}
+
+
+/**
+ *  Gets estimated probabilities and cells
+ *  Returns [
+ *           [iPad1MaxProb, estimatedCell],
+ *           [iPad2MaxProb, estimatedCell],
+ *           [iPhone1MaxProb, estimatedCell],
+ *          ]
+ *  @return array
+ */
+- (NSArray *)getEstimatedProbsAndCells
+{
+    NSMutableArray *estimatedProbsAndCells = [NSMutableArray arrayWithCapacity:3];
+    for (int i = 0; i < 3; i++) {
+        // get max prob in each AP
+        NSNumber *maxProb = [self.priors[i] valueForKeyPath:@"@max.self"];
+        // and the index
+        NSUInteger index = [self.priors[i] indexOfObject:maxProb];
+        // plus 1 means the acutal cell index
+        NSNumber *cell = [NSNumber numberWithInt:index + 1];
+        // (prob, cell)
+        [estimatedProbsAndCells addObject:[NSArray arrayWithObjects:maxProb, cell, nil]];
+//        NSLog(@"Device%d prob: %f -> cell %d", i, [maxProb floatValue], [cell intValue]);
+    }
+    return estimatedProbsAndCells;
 }
 
 @end
