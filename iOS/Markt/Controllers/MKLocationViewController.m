@@ -42,7 +42,7 @@
     [self setupiBeaconData];
     [self addiBeacons];
     self.bayesian = [MKBayesian sharedManager];
-    self.RSSIArray = [[NSMutableArray alloc] initWithObjects:@0, @0, @0, nil];
+    self.RSSIArray = [[NSMutableArray alloc] initWithObjects:@-99, @-99, @-99, nil];
 //    [self testBayesian];
 
 }
