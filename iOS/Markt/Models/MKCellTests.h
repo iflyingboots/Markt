@@ -19,4 +19,5 @@
 + (NSArray *)generateTestDataCell8;
 + (NSArray *)generateTestDataCell9;
 + (NSArray *)generateTestDataCell10;
++ (NSArray *)generateMovingDataForCell12357;
 @end

@@ -163,11 +163,12 @@ float normpdf(float x, float mean, float std_dev) {
  */
 - (void)initPriors
 {
-    if (self.priors == nil) {
-        self.priors = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 3; i++) {
-            [self.priors addObject:[NSMutableArray arrayWithArray:@[@0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1]]];
-        }
+    if (self.priors != nil) {
+        self.priors = nil;
+    }
+    self.priors = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 3; i++) {
+        [self.priors addObject:[NSMutableArray arrayWithArray:@[@0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1, @0.1]]];
     }
 }
 

@@ -56,11 +56,22 @@
 #pragma mark - Bayesian
 - (void)testBayesian
 {
+//    NSArray *testData = [MKCellTests generateMovingDataForCell12357];
     NSArray *testDataCell1 = [MKCellTests generateTestDataCell1];
+    NSArray *testDataCell7 = [MKCellTests generateTestDataCell7];
     for (int i = 0; i < [testDataCell1 count]/5; i++) {
         [self.bayesian estimateCellWithRSSIs:testDataCell1[i]];
+        NSNumber *max = [testDataCell1[i] valueForKeyPath:@"@max.self"];
         NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
-        NSLog(@"%@", probsCellsArray);
+        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, [testDataCell1[i] indexOfObject:max], probsCellsArray[[testDataCell1[i] indexOfObject:max]][1]);
+    }
+    NSLog(@"///////////////////////////////");
+//    [self.bayesian initPriors];
+    for (int i = 0; i < [testDataCell7 count]/3; i++) {
+        [self.bayesian estimateCellWithRSSIs:testDataCell7[i]];
+        NSNumber *max = [testDataCell7[i] valueForKeyPath:@"@max.self"];
+        NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
+        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, [testDataCell7[i] indexOfObject:max], probsCellsArray[[testDataCell7[i] indexOfObject:max]][1]);
     }
 }
 
@@ -82,10 +93,11 @@
             //Run UI Updates
             self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", [probsCellsArray[highestRSSIDevice][1] intValue]];
             self.debugTextView.text = [NSString
-                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]",
+                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
                                        probsCellsArray[0][0], probsCellsArray[0][1],
                                        probsCellsArray[1][0], probsCellsArray[1][1],
-                                       probsCellsArray[2][0], probsCellsArray[2][1]];
+                                       probsCellsArray[2][0], probsCellsArray[2][1],
+                                       self.bayesian.priors[0], self.bayesian.priors[1], self.bayesian.priors[2]];
         });
     });
 }
