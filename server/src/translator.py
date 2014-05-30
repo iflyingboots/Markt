@@ -8,6 +8,7 @@ import requests
 class Translator:
 
     def __init__(self):
+        self.token = ''
         self.client_id = 'MarktAPI'
         self.client_secret = 'OvKOkOkZ2XL6XgtwzlKG0L58rC8GHuFJGn4uj1JnOas='
         self.auth_url = 'https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/'
@@ -30,6 +31,10 @@ class Translator:
         return self.token
 
     def translate(self, from_lang, to_lang, text):
+        """
+        Translate given text from one language to another one
+        :rtype : str
+        """
         if self.token is None:
             return None
         url = 'http://api.microsofttranslator.com/v2/Http.svc/Translate'
@@ -39,7 +44,7 @@ class Translator:
             'to': to_lang,
         }
         headers = {
-            'Authorization': 'Bearer ' + self.token['access_token']
+            'Authorization': 'Bearer {0}'.format(self.token['access_token'])
         }
         req = requests.get(url, params=params, headers=headers)
         return self.trim_xml(req.text)
@@ -53,6 +58,10 @@ class Translator:
         return self.trim_xml(res)
 
     def trim_xml(self, text):
+        """
+        Delete XML tags
+        :rtype : str
+        """
         return re.sub(r'<.*?>', '', text)
 
 

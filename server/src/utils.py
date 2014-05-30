@@ -6,7 +6,7 @@ import json
 
 def json_res(res):
     # if res is string, convert it to dict
-    if type(res) == unicode:
+    if type(res) == unicode or type(res) == str:
         res = {
             'result': res
         }

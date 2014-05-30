@@ -19,6 +19,11 @@
 		CD242E88192A7BFC00DB96B2 /* iPad2_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */; };
 		CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */; };
 		CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E8B192AAF4600DB96B2 /* MKCellTests.m */; };
+		CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2755A01932A21C002998D9 /* MKSettingViewController.m */; };
+		CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2755A21932A2AB002998D9 /* settings@2x.png */; };
+		CD8CBE061937817B00356350 /* MKIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8CBE041937817B00356350 /* MKIngredientsViewController.m */; };
+		CD8CBE071937817B00356350 /* MKIngredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */; };
+		CD8CBE091937B83200356350 /* MKSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8CBE081937B83200356350 /* MKSettingViewController.xib */; };
 		CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DB19234C8000D37DEE /* MKDateManager.m */; };
 		CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9B3DE19235D5900D37DEE /* MKiBeaconManager.m */; };
 		CDA9B3E119236B7900D37DEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9B3E019236B7900D37DEE /* CoreLocation.framework */; };
@@ -69,6 +74,13 @@
 		CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPhone1_dist.txt; sourceTree = "<group>"; };
 		CD242E8A192AAF4600DB96B2 /* MKCellTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCellTests.h; path = Models/MKCellTests.h; sourceTree = "<group>"; };
 		CD242E8B192AAF4600DB96B2 /* MKCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCellTests.m; path = Models/MKCellTests.m; sourceTree = "<group>"; };
+		CD27559F1932A21C002998D9 /* MKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSettingViewController.h; path = Controllers/MKSettingViewController.h; sourceTree = "<group>"; };
+		CD2755A01932A21C002998D9 /* MKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSettingViewController.m; path = Controllers/MKSettingViewController.m; sourceTree = "<group>"; };
+		CD2755A21932A2AB002998D9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		CD8CBE031937817B00356350 /* MKIngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKIngredientsViewController.h; path = Controllers/MKIngredientsViewController.h; sourceTree = "<group>"; };
+		CD8CBE041937817B00356350 /* MKIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKIngredientsViewController.m; path = Controllers/MKIngredientsViewController.m; sourceTree = "<group>"; };
+		CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKIngredientsViewController.xib; path = Controllers/MKIngredientsViewController.xib; sourceTree = "<group>"; };
+		CD8CBE081937B83200356350 /* MKSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKSettingViewController.xib; path = Controllers/MKSettingViewController.xib; sourceTree = "<group>"; };
 		CDA9B3DA19234C8000D37DEE /* MKDateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDateManager.h; sourceTree = "<group>"; };
 		CDA9B3DB19234C8000D37DEE /* MKDateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDateManager.m; sourceTree = "<group>"; };
 		CDA9B3DD19235D5900D37DEE /* MKiBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiBeaconManager.h; sourceTree = "<group>"; };
@@ -131,6 +143,7 @@
 		CD242E69192A6B7300DB96B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD2755A21932A2AB002998D9 /* settings@2x.png */,
 				CD242E6E192A70C800DB96B2 /* circle.png */,
 				CD242E6F192A70C800DB96B2 /* circle@2x.png */,
 				CD242E6C192A6C6F00DB96B2 /* search@2x.png */,
@@ -173,6 +186,12 @@
 				CD242E64192A63D300DB96B2 /* MKScanViewController.h */,
 				CD242E65192A63D300DB96B2 /* MKScanViewController.m */,
 				CD242E66192A63D300DB96B2 /* MKScanViewController.xib */,
+				CD27559F1932A21C002998D9 /* MKSettingViewController.h */,
+				CD2755A01932A21C002998D9 /* MKSettingViewController.m */,
+				CD8CBE081937B83200356350 /* MKSettingViewController.xib */,
+				CD8CBE031937817B00356350 /* MKIngredientsViewController.h */,
+				CD8CBE041937817B00356350 /* MKIngredientsViewController.m */,
+				CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -340,15 +359,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */,
+				CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */,
 				CDF8309D1928A9760086097E /* MKLocationViewController.xib in Resources */,
 				CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */,
 				CD242E6D192A6C6F00DB96B2 /* search@2x.png in Resources */,
+				CD8CBE091937B83200356350 /* MKSettingViewController.xib in Resources */,
 				CD242E71192A70C800DB96B2 /* circle@2x.png in Resources */,
 				CD242E88192A7BFC00DB96B2 /* iPad2_dist.txt in Resources */,
 				CD242E6B192A6B7E00DB96B2 /* location@2x.png in Resources */,
 				CD242E87192A7BFC00DB96B2 /* iPad1_dist.txt in Resources */,
 				CDF40230191AB7F700B7A5FF /* InfoPlist.strings in Resources */,
 				CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */,
+				CD8CBE071937817B00356350 /* MKIngredientsViewController.xib in Resources */,
 				CDF40238191AB7F700B7A5FF /* Images.xcassets in Resources */,
 				CD242E70192A70C800DB96B2 /* circle.png in Resources */,
 			);
@@ -406,12 +428,14 @@
 				CD242E75192A764B00DB96B2 /* MKBayesian.m in Sources */,
 				CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */,
 				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
+				CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */,
 				CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */,
 				CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */,
 				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
 				CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */,
 				CDF40232191AB7F700B7A5FF /* main.m in Sources */,
 				CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */,
+				CD8CBE061937817B00356350 /* MKIngredientsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

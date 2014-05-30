@@ -10,6 +10,7 @@
 #import "MKMeasureViewController.h"
 #import "MKLocationViewController.h"
 #import "MKScanViewController.h"
+#import "MKSettingViewController.h"
 
 @implementation MKAppDelegate
 
@@ -21,14 +22,19 @@
     
     MKLocationViewController *locationVC = [[MKLocationViewController alloc] init];
     MKScanViewController *scanVC = [[MKScanViewController alloc] init];
+    MKSettingViewController *settingVC = [[MKSettingViewController alloc] init];
+    
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    [tabBarVC setViewControllers:@[locationVC, scanVC]];
+    [tabBarVC setViewControllers:@[locationVC, scanVC, settingVC]];
     tabBarVC.view.tintColor = [UIColor orangeColor];
     
     locationVC.tabBarItem.image = [UIImage imageNamed:@"location"];
     locationVC.title = @"Location";
     scanVC.tabBarItem.image = [UIImage imageNamed:@"search"];
     scanVC.title = @"Scan";
+    settingVC.tabBarItem.image = [UIImage imageNamed:@"settings"];
+    settingVC.title = @"Setting";
+    
     
     [self.window addSubview:tabBarVC.view];
     self.window.rootViewController = tabBarVC;
