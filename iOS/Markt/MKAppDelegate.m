@@ -35,6 +35,8 @@
     settingVC.tabBarItem.image = [UIImage imageNamed:@"settings"];
     settingVC.title = @"Setting";
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    
     
     [self.window addSubview:tabBarVC.view];
     self.window.rootViewController = tabBarVC;

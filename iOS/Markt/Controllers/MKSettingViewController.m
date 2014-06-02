@@ -8,7 +8,7 @@
 
 #import "MKSettingViewController.h"
 
-@interface MKSettingViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+@interface MKSettingViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UINavigationBarDelegate>
 @property (strong, nonatomic) NSMutableArray *userKeywords;
 @end
 
@@ -60,6 +60,11 @@
 }
 
 #pragma mark - Delegate
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

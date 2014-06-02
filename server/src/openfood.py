@@ -35,6 +35,8 @@ class OpenFood(object):
         ingredients = self.ingredients()
         keywords = keywords.split(',')
         res = dict(ingredients=ingredients, allergen=list())
+        if ingredients == '':
+            return res
         for keyword in keywords:
             keyword = keyword.strip()
             status = 'Yes' if keyword in ingredients else 'No'

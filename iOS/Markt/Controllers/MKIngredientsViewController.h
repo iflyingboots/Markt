@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MKIngredientsViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *barcodeLabel;
-- (IBAction)doneButtonClicked:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (copy, nonatomic) NSString *barcode;

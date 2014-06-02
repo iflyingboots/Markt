@@ -11,7 +11,7 @@
 #import <TSMessage.h>
 #import <SVProgressHUD.h>
 
-@interface MKIngredientsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MKIngredientsViewController () <UITableViewDelegate, UITableViewDataSource, UIBarPositioningDelegate>
 @property (strong, nonatomic) NSDictionary *ingredientsData;
 @end
 
@@ -29,9 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.barcodeLabel.text = self.barcode;
-    self.tableView.scrollEnabled = NO;
+    UIBarButtonItem *dismissButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonClicked:)];
+    dismissButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = self.barcode;
+    self.navigationItem.leftBarButtonItem = dismissButton;
     [self getIngredientsData];
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,6 +75,12 @@
     }];
 }
 
+#pragma mark - Delegates
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
+}
+
 #pragma mark - Data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -91,6 +100,7 @@
     UILabel *allergenInfoLabel;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         allergenNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, 150, 20)];
         allergenInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 10, 50, 20)];
         [cell addSubview:allergenNameLabel];
