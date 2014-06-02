@@ -87,11 +87,15 @@
         [TSMessage showNotificationInViewController:self title:error.localizedDescription subtitle:nil type:TSMessageNotificationTypeError];
     }
     
+    // Create a new serial dispatch queue.
+    dispatch_queue_t dispatchQueue;
+    dispatchQueue = dispatch_queue_create("myQueue", NULL);
+    
     self.output = [[AVCaptureMetadataOutput alloc] init];
-    [self.output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    [self.output setMetadataObjectsDelegate:self queue:dispatchQueue];
     [self.session addOutput:self.output];
     
-    self.output.metadataObjectTypes = [self.output availableMetadataObjectTypes];
+    self.output.metadataObjectTypes = @[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeQRCode];
     
     self.prevLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
     self.prevLayer.frame = self.view.frame;
@@ -111,24 +115,16 @@
     CGRect highlightViewRect = CGRectZero;
     AVMetadataMachineReadableCodeObject *barcodeObject;
     NSString *detectionString = nil;
-    NSArray *barcodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
-                              AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
-                              AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
     
-    for (AVMetadataObject *metadata in metadataObjects) {
-        for (NSString *type in barcodeTypes) {
-            if ([metadata.type isEqualToString:type]) {
-                barcodeObject = (AVMetadataMachineReadableCodeObject *)[self.prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
-                highlightViewRect = barcodeObject.bounds;
-                detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
-                break;
-            }
-        }
+    if (metadataObjects != nil &&  [metadataObjects count] > 0) {
+        AVMetadataMachineReadableCodeObject *metadata = [metadataObjects firstObject];
+        barcodeObject = (AVMetadataMachineReadableCodeObject *)[self.prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
+        highlightViewRect = barcodeObject.bounds;
+        detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
         
         if (detectionString != nil) {
             self.barcodeLabel.text = detectionString;
             self.barcodeString = detectionString;
-            break;
         } else {
             self.barcodeLabel.text = @"Scanning";
         }
@@ -138,11 +134,22 @@
     
     if (self.barcodeString != nil) {
         [self.session stopRunning];
-        MKIngredientsViewController *ingredientsViewController = [[MKIngredientsViewController alloc] init];
-        ingredientsViewController.barcode = self.barcodeString;
-        [self presentViewController:ingredientsViewController animated:YES completion:nil];
+        self.session = nil;
+        [self presentIngredientsController];
     }
     
+}
+
+#pragma mark - Present ingredients controller
+- (void)presentIngredientsController
+{
+    MKIngredientsViewController *ingredientsViewController = [[MKIngredientsViewController alloc] init];
+    ingredientsViewController.barcode = self.barcodeString;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ingredientsViewController];
+    navigationController.navigationBar.titleTextAttributes =  [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 
