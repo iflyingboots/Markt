@@ -11,6 +11,12 @@
 #import "MKBayesian.h"
 #import "MKCellTests.h"
 
+#define IPAD1 0
+#define IPAD2 1
+#define IPHONE1 2
+#define PROB 0
+#define CELL 1
+
 @interface MKLocationViewController ()
 @property (strong, nonatomic) NSDictionary *ibeaconData;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -50,7 +56,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Bayesian
@@ -63,7 +68,7 @@
         [self.bayesian estimateCellWithRSSIs:testDataCell1[i]];
         NSNumber *max = [testDataCell1[i] valueForKeyPath:@"@max.self"];
         NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
-        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, [testDataCell1[i] indexOfObject:max], probsCellsArray[[testDataCell1[i] indexOfObject:max]][1]);
+        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, (int)[testDataCell1[i] indexOfObject:max], probsCellsArray[[testDataCell1[i] indexOfObject:max]][1]);
     }
     NSLog(@"///////////////////////////////");
 //    [self.bayesian initPriors];
@@ -71,33 +76,42 @@
         [self.bayesian estimateCellWithRSSIs:testDataCell7[i]];
         NSNumber *max = [testDataCell7[i] valueForKeyPath:@"@max.self"];
         NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
-        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, [testDataCell7[i] indexOfObject:max], probsCellsArray[[testDataCell7[i] indexOfObject:max]][1]);
+        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, (int)[testDataCell7[i] indexOfObject:max], probsCellsArray[[testDataCell7[i] indexOfObject:max]][1]);
     }
 }
 
 - (NSInteger)deviceIndexWithMaxRSSI
 {
     NSNumber *max = [self.RSSIArray valueForKeyPath:@"@max.self"];
+    // return device index
     return [self.RSSIArray indexOfObject:max];
 }
 
 - (void)updateCellAccordingToHighestRSSI
 {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        //Background Thread
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        // background thread
         [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
-        NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
         NSInteger highestRSSIDevice = [self deviceIndexWithMaxRSSI];
+        NSArray *probsCellsArray = [self.bayesian getEstimatedProbsAndCells];
+        
+        NSNumber *cellId = probsCellsArray[highestRSSIDevice][CELL];
+        // issue: for cell 4, this method does not work
+        // TODO: this is a workaround
+        if ([self.RSSIArray[IPAD2] isEqualToNumber:@-99] && [self.RSSIArray[IPHONE1] isEqualToNumber:@-99])
+            cellId = @4;
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Run UI Updates
-            self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", [probsCellsArray[highestRSSIDevice][1] intValue]];
+            // update UI
+            self.cellLabel.text = [NSString stringWithFormat:@"Cell %@", cellId];
             self.debugTextView.text = [NSString
                                        stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
-                                       probsCellsArray[0][0], probsCellsArray[0][1],
-                                       probsCellsArray[1][0], probsCellsArray[1][1],
-                                       probsCellsArray[2][0], probsCellsArray[2][1],
-                                       self.bayesian.priors[0], self.bayesian.priors[1], self.bayesian.priors[2]];
+                                       probsCellsArray[IPAD1][PROB], probsCellsArray[IPAD1][CELL],
+                                       probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
+                                       probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
+                                       self.bayesian.priors[IPAD1], self.bayesian.priors[IPAD2], self.bayesian.priors[IPHONE1]];
+            
+            //    self.debugTextView.text = [NSString stringWithFormat:@"%@", self.RSSIArray];
         });
     });
 }
@@ -135,7 +149,6 @@
 - (IBAction)resetPriorsClicked:(id)sender
 {
     [self.bayesian initPriors];
-    NSLog(@"%@", self.bayesian.priors);
 }
 
 #pragma mark - Services
@@ -151,17 +164,17 @@
     NSInteger rssiTrimmed = beacon.rssi == 0 ? -99 : beacon.rssi;
     NSNumber *rssi = [NSNumber numberWithInteger:rssiTrimmed];
     if ([uuid isEqualToString:UUID1]) {
-        [self.RSSIArray setObject:rssi atIndexedSubscript:0];
+        [self.RSSIArray setObject:rssi atIndexedSubscript:IPAD1];
         return;
     }
     
     if ([uuid isEqualToString:UUID2]) {
-        [self.RSSIArray setObject:rssi atIndexedSubscript:1];
+        [self.RSSIArray setObject:rssi atIndexedSubscript:IPAD2];
         return;
     }
     
     if ([uuid isEqualToString:UUID3]) {
-        [self.RSSIArray setObject:rssi atIndexedSubscript:2];
+        [self.RSSIArray setObject:rssi atIndexedSubscript:IPHONE1];
         return;
     }
 }
@@ -178,12 +191,12 @@
         return;
     
     for (CLBeacon *beacon in beacons) {
-        // change the labels
+        // update the labels
         NSDictionary *beaconData = self.ibeaconData[beacon.proximityUUID.UUIDString];
         [self setiBeacnInfo:beaconData rssi:beacon.rssi];
         // update RSSI array
         [self updateRSSIArrayValue:beacon];
-        self.debugTextView.text = [NSString stringWithFormat:@"[%@, %@, %@]", self.RSSIArray[0], self.RSSIArray[1], self.RSSIArray[2]];
+        self.debugTextView.text = [NSString stringWithFormat:@"[%@, %@, %@]", self.RSSIArray[IPAD1], self.RSSIArray[IPAD2], self.RSSIArray[IPHONE1]];
     }
     [self updateCellAccordingToHighestRSSI];
 }

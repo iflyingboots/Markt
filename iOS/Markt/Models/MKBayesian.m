@@ -221,7 +221,7 @@ float normpdf(float x, float mean, float std_dev) {
         // and the index
         NSUInteger index = [self.priors[i] indexOfObject:maxProb];
         // plus 1 means the acutal cell index
-        NSNumber *cell = [NSNumber numberWithInt:index + 1];
+        NSNumber *cell = [NSNumber numberWithInt:(int)index + 1];
         // (prob, cell)
         [estimatedProbsAndCells addObject:[NSArray arrayWithObjects:maxProb, cell, nil]];
 //        NSLog(@"Device%d prob: %f -> cell %d", i, [maxProb floatValue], [cell intValue]);

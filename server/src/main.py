@@ -7,6 +7,7 @@ from openfood import OpenFood
 
 from flask import Flask
 app = Flask(__name__)
+
 translator = Translator()
 food = OpenFood()
 
