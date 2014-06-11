@@ -22,9 +22,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelItemLocation;
 
 - (IBAction)resetPriorsClicked:(id)sender;
-- (IBAction)textFilterLengthUpdated:(id)sender;
-- (IBAction)textFilterAlphaLengthUpdated:(id)sender;
-- (IBAction)textItemParameterUpdated:(id)sender;
 - (IBAction)textFieldAlphaLengthDidEndOnExit:(id)sender;
 - (IBAction)textFieldFilterLengthDidEndOnExit:(id)sender;
 
