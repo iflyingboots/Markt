@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -13,6 +13,7 @@
                 <outlet property="iPhone1Label" destination="v6a-Ea-9xW" id="IRj-SC-hLA"/>
                 <outlet property="itemLookupActivityIndicator" destination="y8J-Qx-as5" id="rTy-Us-lfQ"/>
                 <outlet property="labelItemLocation" destination="bKQ-dG-1jh" id="B22-87-hwE"/>
+                <outlet property="svmMode" destination="lJh-fX-x9P" id="1jk-1g-qrP"/>
                 <outlet property="textFilterAlphaLength" destination="Ew6-gi-eA9" id="6XP-Ae-YyL"/>
                 <outlet property="textFilterLength" destination="uud-rk-hC7" id="4ef-p7-slg"/>
                 <outlet property="textItemName" destination="gsb-ws-rre" id="szV-Tu-bMs"/>
@@ -136,6 +137,17 @@
                     <rect key="frame" x="184" y="91" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SVM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-od-std">
+                    <rect key="frame" x="200" y="129" width="37" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lJh-fX-x9P">
+                    <rect key="frame" x="251" y="124" width="51" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </switch>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
