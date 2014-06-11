@@ -84,7 +84,15 @@ bool filterReset = TRUE;
     }
     
     // Sort in ascending order
-    [rssiCellFilter sortUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
+//    [rssiCellFilter sortUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
+      [rssiCellFilter sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+          if ([obj1 floatValue] > [obj2 floatValue])
+              return NSOrderedDescending;
+          else if ([obj1 floatValue] < [obj2 floatValue])
+              return NSOrderedAscending;
+          return NSOrderedSame;
+      }];
+
   }
   
   // Reset filter flag
@@ -124,7 +132,8 @@ bool filterReset = TRUE;
     
     // Compute sum and average and use this filtered RSSI value for the cell -
     float average = [[rssiCellFilter valueForKeyPath:@"@sum.self"] floatValue]/rssiCellFilter.count;
-    [filteredRSSIData addObject:[NSNumber numberWithFloat:average]];
+    //[filteredRSSIData addObject:[NSNumber numberWithFloat:average]];
+      [filteredRSSIData insertObject:[NSNumber numberWithFloat:average] atIndex:i];
   }
 
   NSLog(@"Filtered RSSI iPad1: %@, iPad2: %@, iPhone1: %@", filteredRSSIData[IPAD1], filteredRSSIData[IPAD2], filteredRSSIData[IPHONE1]);

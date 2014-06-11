@@ -110,7 +110,11 @@
 - (void)updateCellSVM
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        NSInteger cell = [self.svm predict:self.RSSIArray];
+    
+        NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray ];
+
+//        NSInteger cell = [self.svm predict:self.RSSIArray];
+        NSInteger cell = [self.svm predict:alphaArray];
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", (int)cell];
             self.debugTextView.text = @"SVM mode on";
@@ -124,9 +128,10 @@
         // background thread
       
         // Estimate Cell with Filtered RSSI Data (from newly received RSSI info)
-        [bayesian estimateCellWithRSSIs:[alphaTrMeanFilter processNewRSSIData:RSSIArray]];
+//        NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray];
+//        [bayesian estimateCellWithRSSIs:alphaArray];
       
-        //[self.bayesian estimateCellWithRSSIs:self.RSSIArray];
+        [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
         NSInteger highestRSSIDevice = [self deviceIndexWithMaxRSSI];
         NSArray *probsCellsArray = [bayesian getEstimatedProbsAndCells];
         
@@ -139,12 +144,12 @@
         dispatch_async(dispatch_get_main_queue(), ^(void){
             // update UI
             cellLabel.text = [NSString stringWithFormat:@"Cell %@", cellId];
-            debugTextView.text = [NSString
-                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
-                                       probsCellsArray[IPAD1][PROB], probsCellsArray[IPAD1][CELL],
-                                       probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
-                                       probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
-                                       bayesian.priors[IPAD1], bayesian.priors[IPAD2], bayesian.priors[IPHONE1]];
+//            debugTextView.text = [NSString
+//                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
+//                                       probsCellsArray[IPAD1][PROB], probsCellsArray[IPAD1][CELL],
+//                                       probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
+//                                       probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
+//                                       bayesian.priors[IPAD1], bayesian.priors[IPAD2], bayesian.priors[IPHONE1]];
         });
     });
 }
