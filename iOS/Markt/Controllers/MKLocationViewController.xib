@@ -7,7 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MKLocationViewController">
             <connections>
                 <outlet property="cellLabel" destination="YRU-Mb-RNr" id="ZI6-ge-OZu"/>
-                <outlet property="debugTextView" destination="c49-mc-ECI" id="2yD-HF-s4h"/>
                 <outlet property="iPad1Label" destination="odd-DY-LOL" id="2he-4i-cGK"/>
                 <outlet property="iPad2Label" destination="clb-8U-J5Q" id="Okh-de-drn"/>
                 <outlet property="iPhone1Label" destination="v6a-Ea-9xW" id="IRj-SC-hLA"/>
@@ -44,7 +43,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="iPhone 1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEF-D2-GDQ">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iPhone 1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEF-D2-GDQ">
                     <rect key="frame" x="20" y="180" width="80" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
@@ -80,13 +79,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="DEBUG MODE" translatesAutoresizingMaskIntoConstraints="NO" id="c49-mc-ECI">
-                    <rect key="frame" x="19" y="229" width="280" height="161"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-yo-SUJ">
                     <rect key="frame" x="20" y="75" width="70" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,10 +128,8 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="uud-rk-hC7" firstAttribute="top" secondItem="c49-mc-ECI" secondAttribute="bottom" constant="39" id="2jY-rP-Z41"/>
                 <constraint firstAttribute="bottom" secondItem="Ew6-gi-eA9" secondAttribute="bottom" constant="71" id="Gza-PR-J9V"/>
                 <constraint firstItem="Ew6-gi-eA9" firstAttribute="top" secondItem="uud-rk-hC7" secondAttribute="bottom" constant="8" id="U4S-vh-pYw"/>
-                <constraint firstItem="c49-mc-ECI" firstAttribute="top" secondItem="GEF-D2-GDQ" secondAttribute="bottom" constant="15" id="nrG-Ke-1kW"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
