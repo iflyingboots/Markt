@@ -7,14 +7,9 @@
 //
 
 // Bundle files, located in `Data' folder
-#define IPAD1_DIST_FILE @"iPad1_dist"
-#define IPAD2_DIST_FILE @"iPad2_dist"
-#define IPHONE1_DIST_FILE @"iPhone1_dist"
-
-#define MEAN 0
-#define STD  1
 
 #import "MKBayesian.h"
+#import "Constants.h"
 
 @interface MKBayesian ()
 @property (strong, nonatomic) NSMutableArray *distributions;
