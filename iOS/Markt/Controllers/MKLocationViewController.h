@@ -2,7 +2,7 @@
 //  MKLocationViewController.h
 //  Markt
 //
-//  Created by sutar on 5/18/14.
+//  Created by Xin Wang on 5/18/14.
 //  Copyright (c) 2014 SPS. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *iPhone1Label;
 @property (strong, nonatomic) IBOutlet UITextView *debugTextView;
 @property (strong, nonatomic) IBOutlet UILabel *cellLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *svmMode;
 
 - (IBAction)resetPriorsClicked:(id)sender;
 

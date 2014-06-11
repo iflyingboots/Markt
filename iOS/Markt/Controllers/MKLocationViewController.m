@@ -2,7 +2,7 @@
 //  MKLocationViewController.m
 //  Markt
 //
-//  Created by sutar on 5/18/14.
+//  Created by Xin Wang on 5/18/14.
 //  Copyright (c) 2014 SPS. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import "MKiBeaconManager.h"
 #import "MKBayesian.h"
 #import "MKCellTests.h"
+#import "MKSVM.h"
 
 #define IPAD1 0
 #define IPAD2 1
@@ -25,10 +26,10 @@
 @property (strong, nonatomic) MKiBeaconManager *ibeaconRegioniPhone1;
 @property (strong, nonatomic) MKBayesian *bayesian;
 @property (strong, nonatomic) NSMutableArray *RSSIArray;
+@property (strong, nonatomic) MKSVM *svm;
 @end
 
 @implementation MKLocationViewController
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,6 +50,7 @@
     [self addiBeacons];
     self.bayesian = [MKBayesian sharedManager];
     self.RSSIArray = [[NSMutableArray alloc] initWithObjects:@-99, @-99, @-99, nil];
+    self.svm = [[MKSVM alloc] init];
 //    [self testBayesian];
 
 }
@@ -85,6 +87,17 @@
     NSNumber *max = [self.RSSIArray valueForKeyPath:@"@max.self"];
     // return device index
     return [self.RSSIArray indexOfObject:max];
+}
+
+- (void)updateCellSVM
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        NSInteger cell = [self.svm predict:self.RSSIArray];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", (int)cell];
+            self.debugTextView.text = @"SVM mode on";
+        });
+    });
 }
 
 - (void)updateCellAccordingToHighestRSSI
@@ -196,9 +209,13 @@
         [self setiBeacnInfo:beaconData rssi:beacon.rssi];
         // update RSSI array
         [self updateRSSIArrayValue:beacon];
-        self.debugTextView.text = [NSString stringWithFormat:@"[%@, %@, %@]", self.RSSIArray[IPAD1], self.RSSIArray[IPAD2], self.RSSIArray[IPHONE1]];
     }
-    [self updateCellAccordingToHighestRSSI];
+    if (self.svmMode.on == NO) {
+        [self updateCellAccordingToHighestRSSI];
+    } else {
+        [self updateCellSVM];
+    }
+
 }
 
 

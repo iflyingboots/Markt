@@ -24,6 +24,12 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Setting" id="LWk-Mi-LcE">
+                            <barButtonItem key="leftBarButtonItem" systemItem="search" id="xx9-hz-HoL">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="-1" id="i30-qS-N3N"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z3D-sT-oLJ">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>

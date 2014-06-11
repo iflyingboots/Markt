@@ -17,6 +17,14 @@ def hello_world():
     return 'Hello world'
 
 
+@app.route('/item/<item>')
+def item_location(item):
+    res = dict(cell='')
+    if item.lower() == 'kitkat':
+        res['cell'] = 4
+    return utils.json_res(res)
+
+
 @app.route('/en2nl/<text>')
 def en2nl(text):
     translated = unicode(translator.en2nl(text))
@@ -35,11 +43,13 @@ def translate(from_lang, to_lang, text):
     translated = unicode(api.translate(from_lang, to_lang, text))
     return utils.json_res(translated)
 
+
 @app.route('/ingredients/<barcode>')
 def ingredients(barcode):
     food.update(barcode)
     res = food.ingredients()
     return utils.json_res(res)
+
 
 @app.route('/ingredients/part/<barcode>')
 def ingredients_part(barcode):
@@ -48,6 +58,7 @@ def ingredients_part(barcode):
     res = res.split(',')
     res = [i.strip() for i in res]
     return utils.json_res({"results": res})
+
 
 @app.route('/contains/<barcode>/<keywords>')
 def contains(barcode, keywords):

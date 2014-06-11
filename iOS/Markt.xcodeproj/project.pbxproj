@@ -21,6 +21,9 @@
 		CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E8B192AAF4600DB96B2 /* MKCellTests.m */; };
 		CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2755A01932A21C002998D9 /* MKSettingViewController.m */; };
 		CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2755A21932A2AB002998D9 /* settings@2x.png */; };
+		CD3C34B9193FB35D00F99532 /* MKSVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3C34B8193FB35D00F99532 /* MKSVM.m */; };
+		CD3C34BB193FB47100F99532 /* rssi.model in Resources */ = {isa = PBXBuildFile; fileRef = CD3C34BA193FB47100F99532 /* rssi.model */; };
+		CD3C34BD193FBD5000F99532 /* svm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C34BC193FBD5000F99532 /* svm.cpp */; settings = {COMPILER_FLAGS = "-Wall -Wconversion -O3 -fPIC -Wno-sign-conversion"; }; };
 		CD8CBE061937817B00356350 /* MKIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8CBE041937817B00356350 /* MKIngredientsViewController.m */; };
 		CD8CBE071937817B00356350 /* MKIngredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */; };
 		CD8CBE091937B83200356350 /* MKSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8CBE081937B83200356350 /* MKSettingViewController.xib */; };
@@ -77,6 +80,11 @@
 		CD27559F1932A21C002998D9 /* MKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSettingViewController.h; path = Controllers/MKSettingViewController.h; sourceTree = "<group>"; };
 		CD2755A01932A21C002998D9 /* MKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSettingViewController.m; path = Controllers/MKSettingViewController.m; sourceTree = "<group>"; };
 		CD2755A21932A2AB002998D9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		CD3C34B7193FB35D00F99532 /* MKSVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSVM.h; path = Models/MKSVM.h; sourceTree = "<group>"; };
+		CD3C34B8193FB35D00F99532 /* MKSVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSVM.m; path = Models/MKSVM.m; sourceTree = "<group>"; };
+		CD3C34BA193FB47100F99532 /* rssi.model */ = {isa = PBXFileReference; lastKnownFileType = text; path = rssi.model; sourceTree = "<group>"; };
+		CD3C34BC193FBD5000F99532 /* svm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = svm.cpp; sourceTree = "<group>"; };
+		CD3C34BE193FBD6000F99532 /* svm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = svm.h; sourceTree = "<group>"; };
 		CD8CBE031937817B00356350 /* MKIngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKIngredientsViewController.h; path = Controllers/MKIngredientsViewController.h; sourceTree = "<group>"; };
 		CD8CBE041937817B00356350 /* MKIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKIngredientsViewController.m; path = Controllers/MKIngredientsViewController.m; sourceTree = "<group>"; };
 		CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKIngredientsViewController.xib; path = Controllers/MKIngredientsViewController.xib; sourceTree = "<group>"; };
@@ -159,6 +167,8 @@
 				CD242E74192A764B00DB96B2 /* MKBayesian.m */,
 				CD242E8A192AAF4600DB96B2 /* MKCellTests.h */,
 				CD242E8B192AAF4600DB96B2 /* MKCellTests.m */,
+				CD3C34B7193FB35D00F99532 /* MKSVM.h */,
+				CD3C34B8193FB35D00F99532 /* MKSVM.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 		CD242E7D192A7B2900DB96B2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CD3C34BA193FB47100F99532 /* rssi.model */,
 				CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */,
 				CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */,
 				CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */,
@@ -220,6 +231,8 @@
 		CDF40224191AB7F700B7A5FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD3C34BE193FBD6000F99532 /* svm.h */,
+				CD3C34BC193FBD5000F99532 /* svm.cpp */,
 				CDA9B3E219236B8100D37DEE /* CoreBluetooth.framework */,
 				CDA9B3E019236B7900D37DEE /* CoreLocation.framework */,
 				CDF40225191AB7F700B7A5FF /* Foundation.framework */,
@@ -358,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3C34BB193FB47100F99532 /* rssi.model in Resources */,
 				CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */,
 				CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */,
 				CDF8309D1928A9760086097E /* MKLocationViewController.xib in Resources */,
@@ -426,6 +440,7 @@
 			files = (
 				CDF40236191AB7F700B7A5FF /* MKAppDelegate.m in Sources */,
 				CD242E75192A764B00DB96B2 /* MKBayesian.m in Sources */,
+				CD3C34B9193FB35D00F99532 /* MKSVM.m in Sources */,
 				CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */,
 				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
 				CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */,
@@ -433,6 +448,7 @@
 				CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */,
 				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
 				CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */,
+				CD3C34BD193FBD5000F99532 /* svm.cpp in Sources */,
 				CDF40232191AB7F700B7A5FF /* main.m in Sources */,
 				CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */,
 				CD8CBE061937817B00356350 /* MKIngredientsViewController.m in Sources */,
@@ -557,6 +573,24 @@
 				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
 				INFOPLIST_FILE = "Markt/Markt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lm",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -572,6 +606,24 @@
 				GCC_PREFIX_HEADER = "Markt/Markt-Prefix.pch";
 				INFOPLIST_FILE = "Markt/Markt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lm",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

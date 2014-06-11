@@ -2,11 +2,17 @@
 //  MKSettingViewController.m
 //  Markt
 //
-//  Created by sutar on 5/26/14.
+//  Created by Xin Wang on 5/26/14.
 //  Copyright (c) 2014 SPS. All rights reserved.
 //
 
 #import "MKSettingViewController.h"
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+#import <TSMessage.h>
+
+#define SEARCH_ALERT_TAG 10
+#define ADD_ALERT_TAG 11
 
 @interface MKSettingViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UINavigationBarDelegate>
 @property (strong, nonatomic) NSMutableArray *userKeywords;
@@ -36,11 +42,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - API
+
+- (void)getItemLocation:(NSString *)item
+{
+    NSString *URLString = [NSString stringWithFormat:@"http://markt.wangx.in/item/%@", item];
+    [SVProgressHUD show];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSString *msg = [NSString stringWithFormat:@"Cell %@", responseObject[@"cell"]];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Location" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD dismiss];
+        [TSMessage showNotificationInViewController:self title:error.localizedDescription subtitle:nil type:TSMessageNotificationTypeError];
+    }];
+}
+
+
+
 #pragma mark - Actions
+
+- (IBAction)searchButtonClicked:(id)sender
+{
+    UIAlertView *inputView = [[UIAlertView alloc] init];
+    inputView.delegate = self;
+    inputView.tag = SEARCH_ALERT_TAG;
+    [inputView setTitle:@"Search item"];
+    [inputView addButtonWithTitle:@"Search"];
+    inputView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [inputView show];
+}
 
 - (IBAction)addKeyword:(id)sender
 {
     UIAlertView *inputView = [[UIAlertView alloc] init];
+    inputView.tag = ADD_ALERT_TAG;
     inputView.delegate = self;
     [inputView setTitle:@"Enter the keyword"];
     [inputView addButtonWithTitle:@"Okay"];
@@ -68,11 +106,18 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
     UITextField *inputField = [alertView textFieldAtIndex:0];
     NSString *inputString = inputField.text;
-    [self.userKeywords addObject:inputString];
-    [self storeUserKeywords];
-    [self.tableView reloadData];
+    if (alertView.tag == ADD_ALERT_TAG) {
+        [self.userKeywords addObject:inputString];
+        [self storeUserKeywords];
+        [self.tableView reloadData];
+    }
+    if (alertView.tag == SEARCH_ALERT_TAG) {
+        [self getItemLocation:inputString];
+    }
+
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,4 +160,5 @@
     
     return cell;
 }
+
 @end

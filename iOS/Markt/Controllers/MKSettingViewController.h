@@ -2,7 +2,7 @@
 //  MKSettingViewController.h
 //  Markt
 //
-//  Created by sutar on 5/26/14.
+//  Created by Xin Wang on 5/26/14.
 //  Copyright (c) 2014 SPS. All rights reserved.
 //
 
@@ -11,5 +11,6 @@
 @interface MKSettingViewController : UIViewController
 - (IBAction)addKeyword:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)searchButtonClicked:(id)sender;
 
 @end

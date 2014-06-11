@@ -2,7 +2,7 @@
 //  MKFileManager.m
 //  Markt
 //
-//  Created by sutar on 5/14/14.
+//  Created by Xin Wang on 5/14/14.
 //  Copyright (c) 2014 SPS. All rights reserved.
 //
 
