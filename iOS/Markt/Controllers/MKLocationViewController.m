@@ -36,9 +36,7 @@
 @implementation MKLocationViewController
 @synthesize textFilterLength;
 @synthesize textFilterAlphaLength;
-@synthesize textItemName;
 @synthesize labelItemLocation;
-@synthesize itemLookupActivityIndicator;
 @synthesize itemLookupResponseData;
 @synthesize itemCellLocation;
 @synthesize bayesian;
@@ -147,34 +145,8 @@
                                        probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
                                        probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
                                        bayesian.priors[IPAD1], bayesian.priors[IPAD2], bayesian.priors[IPHONE1]];
-            
-            //    self.debugTextView.text = [NSString stringWithFormat:@"%@", self.RSSIArray];
         });
     });
-}
-
-- (void)lookupItemLocation:(NSString *)itemName
-{
-  NSLog(@"Looking up cell location info for: %@", itemName);
-  [itemLookupActivityIndicator startAnimating];
-  
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-    // TODO: This needs to be implemented on the server side
-    // Background thread to lookup item's cell location from server
-    NSString *URLString = [NSString stringWithFormat:@"http://markt.wangx.in/location/%@", itemName];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-      [itemLookupActivityIndicator stopAnimating];
-      itemLookupResponseData = responseObject;
-      itemCellLocation = itemLookupResponseData[@"location"];
-      labelItemLocation.text = [NSString stringWithFormat:@"Cell %@", itemCellLocation];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-      [itemLookupActivityIndicator stopAnimating];
-      labelItemLocation.text = @"Unknown";
-    }];
-  });
 }
 
 #pragma mark - iBeacon
@@ -210,19 +182,6 @@
 - (IBAction)resetPriorsClicked:(id)sender
 {
   [bayesian initPriors];
-}
-
-- (IBAction)textFieldItemNameDidEndOnExit:(id)sender {
-  UITextField *textField = (UITextField *)sender;
-  
-  // Clear Item Location Label
-  labelItemLocation.text = @"";
-
-  // TODO: Lookup item cell location info from server and show in labelItemLocation
-  // This will return a 1,2,3...10 value for each of our test items and then we'll show it in the label
-  if ([textField.text length] > 0) {
-    [self lookupItemLocation:textField.text];
-  }
 }
 
 - (IBAction)textFieldAlphaLengthDidEndOnExit:(id)sender {
