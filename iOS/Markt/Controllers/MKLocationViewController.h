@@ -17,7 +17,18 @@
 @property (strong, nonatomic) IBOutlet UITextView *debugTextView;
 @property (strong, nonatomic) IBOutlet UILabel *cellLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *svmMode;
+@property (strong, nonatomic) IBOutlet UITextField *textFilterLength;
+@property (strong, nonatomic) IBOutlet UITextField *textFilterAlphaLength;
+@property (strong, nonatomic) IBOutlet UITextField *textItemName;
+@property (strong, nonatomic) IBOutlet UILabel *labelItemLocation;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *itemLookupActivityIndicator;
 
 - (IBAction)resetPriorsClicked:(id)sender;
+- (IBAction)textFilterLengthUpdated:(id)sender;
+- (IBAction)textFilterAlphaLengthUpdated:(id)sender;
+- (IBAction)textItemParameterUpdated:(id)sender;
+- (IBAction)textFieldItemNameDidEndOnExit:(id)sender;
+- (IBAction)textFieldAlphaLengthDidEndOnExit:(id)sender;
+- (IBAction)textFieldFilterLengthDidEndOnExit:(id)sender;
 
 @end

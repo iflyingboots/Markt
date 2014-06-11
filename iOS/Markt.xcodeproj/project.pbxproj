@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38DE198A1946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */; };
 		8E16E4F3B62743AB957F6209 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF182A668664CD0BC8C06AA /* libPods.a */; };
 		CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E65192A63D300DB96B2 /* MKScanViewController.m */; };
 		CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD242E66192A63D300DB96B2 /* MKScanViewController.xib */; };
@@ -62,6 +63,9 @@
 
 /* Begin PBXFileReference section */
 		2BCF32A3FFE7448684ACDB18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		38DE19881946FF2200055B0A /* MKAlphaTrimmedMeanFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKAlphaTrimmedMeanFilter.h; path = Models/MKAlphaTrimmedMeanFilter.h; sourceTree = "<group>"; };
+		38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKAlphaTrimmedMeanFilter.m; path = Models/MKAlphaTrimmedMeanFilter.m; sourceTree = "<group>"; };
+		38DE198C19470BA500055B0A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Models/Constants.h; sourceTree = "<group>"; };
 		4FF182A668664CD0BC8C06AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD242E64192A63D300DB96B2 /* MKScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKScanViewController.h; path = Controllers/MKScanViewController.h; sourceTree = "<group>"; };
 		CD242E65192A63D300DB96B2 /* MKScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKScanViewController.m; path = Controllers/MKScanViewController.m; sourceTree = "<group>"; };
@@ -164,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				CD242E73192A764B00DB96B2 /* MKBayesian.h */,
+				38DE198C19470BA500055B0A /* Constants.h */,
+				38DE19881946FF2200055B0A /* MKAlphaTrimmedMeanFilter.h */,
+				38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */,
 				CD242E74192A764B00DB96B2 /* MKBayesian.m */,
 				CD242E8A192AAF4600DB96B2 /* MKCellTests.h */,
 				CD242E8B192AAF4600DB96B2 /* MKCellTests.m */,
@@ -445,6 +452,7 @@
 				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
 				CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */,
 				CDA9B3DC19234C8000D37DEE /* MKDateManager.m in Sources */,
+				38DE198A1946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m in Sources */,
 				CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */,
 				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
 				CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */,

@@ -35,7 +35,7 @@
     scanVC.tabBarItem.image = [UIImage imageNamed:@"search"];
     scanVC.title = @"Scan";
     settingVC.tabBarItem.image = [UIImage imageNamed:@"settings"];
-    settingVC.title = @"Setting";
+    settingVC.title = @"Settings";
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
     
