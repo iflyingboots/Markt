@@ -20,6 +20,7 @@
 @synthesize rssiWindow;
 @synthesize alpha;
 @synthesize filterSize;
+bool filterReset = TRUE;
 
 /**
  *  Singleton
@@ -70,14 +71,27 @@
   // Insert new RSSI Data into sliding window of size ALPHA_MEAN_FILTER_SIZE
   for (int i = 0; i < self.rssiWindow.count; i++) {
     NSMutableArray *rssiCellFilter = (NSMutableArray *)self.rssiWindow[i];
-    for (int j = (rssiCellFilter.count - 1); j > 0; j--) {
-      rssiCellFilter[j] = rssiCellFilter[j-1];
+    
+    // First time populate filter banks with first received RSSI value
+    if (filterReset) {
+      [rssiCellFilter removeAllObjects];
+      for (int j = 0; j < filterSize.intValue; j++) {
+        [rssiCellFilter addObject:RSSIs[i]];
+      }
+    } else {
+      [rssiCellFilter removeLastObject];
+      [rssiCellFilter insertObject:RSSIs[i] atIndex:0];
     }
-    rssiCellFilter[0] = RSSIs[i];
     
     // Sort in ascending order
     [rssiCellFilter sortUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
   }
+  
+  // Reset filter flag
+  if (filterReset) {
+    filterReset = false;
+  }
+    
 }
 
 /**
@@ -126,7 +140,6 @@
 {
   NSLog(@"RAW RSSI iPad1: %@, iPad2: %@, iPhone1: %@", RSSIs[IPAD1], RSSIs[IPAD2], RSSIs[IPHONE1]);
   [self insertNewRSSIDataAndSortInAscendingOrder:RSSIs];
-  [self performAlphaTrimmingFilter];
   return [self performAlphaTrimmingFilter];
 }
 
@@ -137,6 +150,7 @@
  */
 - (void) resetRSSIFilterWindow
 {
+  filterReset = TRUE;
   for (int i = 0; i < self.rssiWindow.count; i++) {
     NSMutableArray *rssiCellFilter = (NSMutableArray *)self.rssiWindow[i];
     for (int j = 0; j < filterSize.intValue; j++) {
