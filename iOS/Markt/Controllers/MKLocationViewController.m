@@ -124,34 +124,23 @@
 
 - (void)updateCellAccordingToHighestRSSI
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        // background thread
-      
         // Estimate Cell with Filtered RSSI Data (from newly received RSSI info)
-//        NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray];
-//        [bayesian estimateCellWithRSSIs:alphaArray];
-      
-        [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
+        NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray];
+        [bayesian estimateCellWithRSSIs:alphaArray];
+    
+//        [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
         NSInteger highestRSSIDevice = [self deviceIndexWithMaxRSSI];
         NSArray *probsCellsArray = [bayesian getEstimatedProbsAndCells];
         
         NSNumber *cellId = probsCellsArray[highestRSSIDevice][CELL];
-//        // issue: for cell 4, this method does not work
-//        // TODO: this is a workaround
-//        if ([self.RSSIArray[IPAD2] isEqualToNumber:@-99] && [self.RSSIArray[IPHONE1] isEqualToNumber:@-99])
-//            cellId = @4;
-      
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            // update UI
-            cellLabel.text = [NSString stringWithFormat:@"Cell %@", cellId];
+    
+        cellLabel.text = [NSString stringWithFormat:@"Cell %@", cellId];
 //            debugTextView.text = [NSString
 //                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
 //                                       probsCellsArray[IPAD1][PROB], probsCellsArray[IPAD1][CELL],
 //                                       probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
 //                                       probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
 //                                       bayesian.priors[IPAD1], bayesian.priors[IPAD2], bayesian.priors[IPHONE1]];
-        });
-    });
 }
 
 #pragma mark - iBeacon
