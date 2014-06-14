@@ -75,6 +75,11 @@
     [inputView show];
 }
 
+/**
+ *  Add a keyword from user input
+ *
+ *  @param sender
+ */
 - (IBAction)addKeyword:(id)sender
 {
     UIAlertView *inputView = [[UIAlertView alloc] init];
@@ -86,12 +91,20 @@
     [inputView show];
 }
 
+/**
+ *  Store keywords to user defaults
+ */
 - (void)storeUserKeywords
 {
     [[NSUserDefaults standardUserDefaults] setObject:self.userKeywords forKey:@"userKeywords"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+/**
+ *  Loads keywords from user defaults
+ *
+ *  @return NSArray
+ */
 - (NSArray *)loadUserKeywords
 {
     return (NSArray *)[[NSUserDefaults standardUserDefaults] objectForKey:@"userKeywords"];
@@ -133,7 +146,6 @@
     [self.userKeywords removeObjectAtIndex:indexPath.row];
     [self storeUserKeywords];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    [self.tableView reloadData];
 }
 
 

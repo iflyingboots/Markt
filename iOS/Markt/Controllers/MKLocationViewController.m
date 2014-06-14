@@ -68,7 +68,6 @@
     bayesian = [MKBayesian sharedManager];
     alphaTrMeanFilter = [MKAlphaTrimmedMeanFilter sharedManager];
     RSSIArray = [[NSMutableArray alloc] initWithObjects:@-99, @-99, @-99, nil];
-//    [self testBayesian];
 
 }
 
@@ -78,6 +77,11 @@
 }
 
 
+/**
+ *  Get the device index with highest RSSI
+ *
+ *  @return device index
+ */
 - (NSInteger)deviceIndexWithMaxRSSI
 {
     NSNumber *max = [RSSIArray valueForKeyPath:@"@max.self"];
@@ -86,6 +90,9 @@
 }
 
 #pragma mark - SVM
+/**
+ *  Update cell label according to SVM prediction
+ */
 - (void)updateCellSVM
 {
     NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray ];
@@ -95,6 +102,9 @@
 }
 
 #pragma mark - Bayesian
+/**
+ *  Update cell label according to Bayesian filter results
+ */
 - (void)updateCellAccordingToHighestRSSI
 {
         // Estimate Cell with Filtered RSSI Data (from newly received RSSI info)
@@ -110,6 +120,9 @@
 }
 
 #pragma mark - iBeacon
+/**
+ *  Add iBeacon devices
+ */
 - (void)addiBeacons
 {
     ibeaconRegioniPad1 = [[MKiBeaconManager alloc] initWithUUID:UUID1 identifier:@"iPad1"];
@@ -120,12 +133,20 @@
     [self monitorRegion:ibeaconRegioniPhone1];
 }
 
+/**
+ *  Start to monitor region
+ *
+ *  @param region
+ */
 - (void)monitorRegion:(CLBeaconRegion *)region
 {
     [locationManager startMonitoringForRegion:region];
     [locationManager startRangingBeaconsInRegion:region];
 }
 
+/**
+ *  Set up iBeacon device info
+ */
 - (void)setupiBeaconData
 {
     if (ibeaconData == nil) {
@@ -163,6 +184,11 @@
     [self setValue:text forKeyPath:iBeaconInfo[@"label"]];
 }
 
+/**
+ *  Update RSSI array value from reading
+ *
+ *  @param beacon
+ */
 - (void)updateRSSIArrayValue:(CLBeacon *)beacon
 {
     NSString *uuid = beacon.proximityUUID.UUIDString;
@@ -186,6 +212,13 @@
 
 #pragma mark - Delegate
 
+/**
+ *  iBeacon region delegation
+ *
+ *  @param manager
+ *  @param beacons
+ *  @param region
+ */
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     if ([beacons count] == 0)
@@ -198,6 +231,7 @@
         // update RSSI array
         [self updateRSSIArrayValue:beacon];
     }
+    /* two modes */
     if (self.svmMode.on == NO) {
         [self updateCellAccordingToHighestRSSI];
     } else {
