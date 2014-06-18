@@ -8,6 +8,7 @@
 
 #import "MKAppDelegate.h"
 #import "MKMeasureViewController.h"
+#import "MKMapViewController.h"
 #import "MKLocationViewController.h"
 #import "MKScanViewController.h"
 #import "MKSettingViewController.h"
@@ -21,17 +22,21 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    MKLocationViewController *locationVC = [[MKLocationViewController alloc] init];
+  
+    MKMapViewController *mapVC = [[MKMapViewController alloc] init];
+//    MKLocationViewController *locationVC = [[MKLocationViewController alloc] init];
     MKScanViewController *scanVC = [[MKScanViewController alloc] init];
     MKSettingViewController *settingVC = [[MKSettingViewController alloc] init];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    [tabBarVC setViewControllers:@[locationVC, scanVC, settingVC]];
+//    [tabBarVC setViewControllers:@[locationVC, scanVC, settingVC]];
+    [tabBarVC setViewControllers:@[mapVC, scanVC, settingVC]];
     tabBarVC.view.tintColor = [UIColor orangeColor];
-    
-    locationVC.tabBarItem.image = [UIImage imageNamed:@"location"];
-    locationVC.title = @"Location";
+  
+    mapVC.tabBarItem.image = [UIImage imageNamed:@"location"];
+    mapVC.title = @"Location";
+//    locationVC.tabBarItem.image = [UIImage imageNamed:@"location"];
+//    locationVC.title = @"Location";
     scanVC.tabBarItem.image = [UIImage imageNamed:@"search"];
     scanVC.title = @"Scan";
     settingVC.tabBarItem.image = [UIImage imageNamed:@"settings"];

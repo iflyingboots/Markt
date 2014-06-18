@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		38DE198A1946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */; };
+		38DF9AB31951841B00409BEF /* MKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DF9AB11951841B00409BEF /* MKMapViewController.m */; };
+		38DF9AB41951841B00409BEF /* MKMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DF9AB21951841B00409BEF /* MKMapViewController.xib */; };
+		38DF9ABA1951A29D00409BEF /* floorMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DF9AB91951A29D00409BEF /* floorMap.png */; };
+		38DF9ABC1951A65900409BEF /* EWI_HB9_annotated.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DF9ABB1951A65900409BEF /* EWI_HB9_annotated.png */; };
 		8E16E4F3B62743AB957F6209 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF182A668664CD0BC8C06AA /* libPods.a */; };
 		CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E65192A63D300DB96B2 /* MKScanViewController.m */; };
 		CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD242E66192A63D300DB96B2 /* MKScanViewController.xib */; };
@@ -65,6 +69,11 @@
 		38DE19881946FF2200055B0A /* MKAlphaTrimmedMeanFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKAlphaTrimmedMeanFilter.h; path = Models/MKAlphaTrimmedMeanFilter.h; sourceTree = "<group>"; };
 		38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKAlphaTrimmedMeanFilter.m; path = Models/MKAlphaTrimmedMeanFilter.m; sourceTree = "<group>"; };
 		38DE198C19470BA500055B0A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Models/Constants.h; sourceTree = "<group>"; };
+		38DF9AB01951841B00409BEF /* MKMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMapViewController.h; sourceTree = "<group>"; };
+		38DF9AB11951841B00409BEF /* MKMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMapViewController.m; sourceTree = "<group>"; };
+		38DF9AB21951841B00409BEF /* MKMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKMapViewController.xib; sourceTree = "<group>"; };
+		38DF9AB91951A29D00409BEF /* floorMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floorMap.png; sourceTree = "<group>"; };
+		38DF9ABB1951A65900409BEF /* EWI_HB9_annotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EWI_HB9_annotated.png; sourceTree = "<group>"; };
 		4FF182A668664CD0BC8C06AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD242E64192A63D300DB96B2 /* MKScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKScanViewController.h; path = Controllers/MKScanViewController.h; sourceTree = "<group>"; };
 		CD242E65192A63D300DB96B2 /* MKScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKScanViewController.m; path = Controllers/MKScanViewController.m; sourceTree = "<group>"; };
@@ -152,6 +161,8 @@
 		CD242E69192A6B7300DB96B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				38DF9ABB1951A65900409BEF /* EWI_HB9_annotated.png */,
+				38DF9AB91951A29D00409BEF /* floorMap.png */,
 				CD2755A21932A2AB002998D9 /* settings@2x.png */,
 				CD242E6E192A70C800DB96B2 /* circle.png */,
 				CD242E6F192A70C800DB96B2 /* circle@2x.png */,
@@ -205,6 +216,9 @@
 				CD8CBE031937817B00356350 /* MKIngredientsViewController.h */,
 				CD8CBE041937817B00356350 /* MKIngredientsViewController.m */,
 				CD8CBE051937817B00356350 /* MKIngredientsViewController.xib */,
+				38DF9AB01951841B00409BEF /* MKMapViewController.h */,
+				38DF9AB11951841B00409BEF /* MKMapViewController.m */,
+				38DF9AB21951841B00409BEF /* MKMapViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +391,7 @@
 				CDDB2BBA1922C33A00DF1C7F /* MKMeasureViewController.xib in Resources */,
 				CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */,
 				CDF8309D1928A9760086097E /* MKLocationViewController.xib in Resources */,
+				38DF9AB41951841B00409BEF /* MKMapViewController.xib in Resources */,
 				CD242E68192A63D300DB96B2 /* MKScanViewController.xib in Resources */,
 				CD242E6D192A6C6F00DB96B2 /* search@2x.png in Resources */,
 				CD8CBE091937B83200356350 /* MKSettingViewController.xib in Resources */,
@@ -386,6 +401,8 @@
 				CD242E87192A7BFC00DB96B2 /* iPad1_dist.txt in Resources */,
 				CDF40230191AB7F700B7A5FF /* InfoPlist.strings in Resources */,
 				CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */,
+				38DF9ABA1951A29D00409BEF /* floorMap.png in Resources */,
+				38DF9ABC1951A65900409BEF /* EWI_HB9_annotated.png in Resources */,
 				CD8CBE071937817B00356350 /* MKIngredientsViewController.xib in Resources */,
 				CDF40238191AB7F700B7A5FF /* Images.xcassets in Resources */,
 				CD242E70192A70C800DB96B2 /* circle.png in Resources */,
@@ -442,6 +459,7 @@
 			files = (
 				CDF40236191AB7F700B7A5FF /* MKAppDelegate.m in Sources */,
 				CD242E75192A764B00DB96B2 /* MKBayesian.m in Sources */,
+				38DF9AB31951841B00409BEF /* MKMapViewController.m in Sources */,
 				CD3C34B9193FB35D00F99532 /* MKSVM.m in Sources */,
 				CD242E67192A63D300DB96B2 /* MKScanViewController.m in Sources */,
 				CDDB2BBD1922D09500DF1C7F /* MKFileManager.m in Sources */,
