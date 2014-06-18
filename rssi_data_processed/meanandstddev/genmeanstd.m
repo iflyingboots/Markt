@@ -4,7 +4,7 @@ close all;
 % Constants
 ap1_fn = '/Users/Abhi/Documents/Learning/Courses/Delft/2013-2014/p4/IN4254-SmartPhoneSensing/Markt/rssi_data_processed/ipad1.txt  ';
 ap2_fn = '/Users/Abhi/Documents/Learning/Courses/Delft/2013-2014/p4/IN4254-SmartPhoneSensing/Markt/rssi_data_processed/ipad2.txt  ';
-ap3_fn = '/Users/Abhi/Documents/Learning/Courses/Delft/2013-2014/p4/IN4254-SmartPhoneSensing/Markt/rssi_data_processed/iphone1.txt';
+ap3_fn = '/Users/Abhi/Documents/Learning/Courses/Delft/2013-2014/p4/IN4254-SmartPhoneSensing/Markt/rssi_data_final/normfit/iphone1.txt';
 filenum = [2:4];
 
 for i=filenum(3):filenum(3)
