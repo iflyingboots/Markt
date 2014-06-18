@@ -19,7 +19,6 @@
 		CD242E87192A7BFC00DB96B2 /* iPad1_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */; };
 		CD242E88192A7BFC00DB96B2 /* iPad2_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */; };
 		CD242E89192A7BFC00DB96B2 /* iPhone1_dist.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */; };
-		CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD242E8B192AAF4600DB96B2 /* MKCellTests.m */; };
 		CD2755A11932A21C002998D9 /* MKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2755A01932A21C002998D9 /* MKSettingViewController.m */; };
 		CD2755A31932A2AB002998D9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2755A21932A2AB002998D9 /* settings@2x.png */; };
 		CD3C34B9193FB35D00F99532 /* MKSVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3C34B8193FB35D00F99532 /* MKSVM.m */; };
@@ -79,8 +78,6 @@
 		CD242E84192A7BFC00DB96B2 /* iPad1_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPad1_dist.txt; sourceTree = "<group>"; };
 		CD242E85192A7BFC00DB96B2 /* iPad2_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPad2_dist.txt; sourceTree = "<group>"; };
 		CD242E86192A7BFC00DB96B2 /* iPhone1_dist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iPhone1_dist.txt; sourceTree = "<group>"; };
-		CD242E8A192AAF4600DB96B2 /* MKCellTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCellTests.h; path = Models/MKCellTests.h; sourceTree = "<group>"; };
-		CD242E8B192AAF4600DB96B2 /* MKCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCellTests.m; path = Models/MKCellTests.m; sourceTree = "<group>"; };
 		CD27559F1932A21C002998D9 /* MKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSettingViewController.h; path = Controllers/MKSettingViewController.h; sourceTree = "<group>"; };
 		CD2755A01932A21C002998D9 /* MKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSettingViewController.m; path = Controllers/MKSettingViewController.m; sourceTree = "<group>"; };
 		CD2755A21932A2AB002998D9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 				38DE19881946FF2200055B0A /* MKAlphaTrimmedMeanFilter.h */,
 				38DE19891946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m */,
 				CD242E74192A764B00DB96B2 /* MKBayesian.m */,
-				CD242E8A192AAF4600DB96B2 /* MKCellTests.h */,
-				CD242E8B192AAF4600DB96B2 /* MKCellTests.m */,
 				CD3C34B7193FB35D00F99532 /* MKSVM.h */,
 				CD3C34B8193FB35D00F99532 /* MKSVM.m */,
 			);
@@ -455,7 +450,6 @@
 				38DE198A1946FF2200055B0A /* MKAlphaTrimmedMeanFilter.m in Sources */,
 				CDF8309C1928A9760086097E /* MKLocationViewController.m in Sources */,
 				CDDB2BB91922C33A00DF1C7F /* MKMeasureViewController.m in Sources */,
-				CD242E8C192AAF4600DB96B2 /* MKCellTests.m in Sources */,
 				CD3C34BD193FBD5000F99532 /* svm.cpp in Sources */,
 				CDF40232191AB7F700B7A5FF /* main.m in Sources */,
 				CDA9B3DF19235D5900D37DEE /* MKiBeaconManager.m in Sources */,

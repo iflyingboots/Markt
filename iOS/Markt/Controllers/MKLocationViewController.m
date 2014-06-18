@@ -9,7 +9,6 @@
 #import "MKLocationViewController.h"
 #import "MKiBeaconManager.h"
 #import "MKBayesian.h"
-#import "MKCellTests.h"
 #import "MKSVM.h"
 #import "MKAlphaTrimmedMeanFilter.h"
 #import <AFNetworking.h>
@@ -48,7 +47,6 @@
 @synthesize ibeaconRegioniPad2;
 @synthesize ibeaconRegioniPhone1;
 @synthesize cellLabel;
-@synthesize debugTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,7 +68,6 @@
     bayesian = [MKBayesian sharedManager];
     alphaTrMeanFilter = [MKAlphaTrimmedMeanFilter sharedManager];
     RSSIArray = [[NSMutableArray alloc] initWithObjects:@-99, @-99, @-99, nil];
-//    [self testBayesian];
 
 }
 
@@ -79,27 +76,12 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Bayesian
-- (void)testBayesian
-{
-    NSArray *testDataCell1 = [MKCellTests generateTestDataCell1];
-    NSArray *testDataCell7 = [MKCellTests generateTestDataCell7];
-    for (int i = 0; i < [testDataCell1 count]/5; i++) {
-        [bayesian estimateCellWithRSSIs:testDataCell1[i]];
-        NSNumber *max = [testDataCell1[i] valueForKeyPath:@"@max.self"];
-        NSArray *probsCellsArray = [bayesian getEstimatedProbsAndCells];
-        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, (int)[testDataCell1[i] indexOfObject:max], probsCellsArray[[testDataCell1[i] indexOfObject:max]][1]);
-    }
-    NSLog(@"///////////////////////////////");
-//    [self.bayesian initPriors];
-    for (int i = 0; i < [testDataCell7 count]/3; i++) {
-        [bayesian estimateCellWithRSSIs:testDataCell7[i]];
-        NSNumber *max = [testDataCell7[i] valueForKeyPath:@"@max.self"];
-        NSArray *probsCellsArray = [bayesian getEstimatedProbsAndCells];
-        NSLog(@"%@, highest: %d, estimated: cell %@", probsCellsArray, (int)[testDataCell7[i] indexOfObject:max], probsCellsArray[[testDataCell7[i] indexOfObject:max]][1]);
-    }
-}
 
+/**
+ *  Get the device index with highest RSSI
+ *
+ *  @return device index
+ */
 - (NSInteger)deviceIndexWithMaxRSSI
 {
     NSNumber *max = [RSSIArray valueForKeyPath:@"@max.self"];
@@ -107,43 +89,40 @@
     return [RSSIArray indexOfObject:max];
 }
 
+#pragma mark - SVM
+/**
+ *  Update cell label according to SVM prediction
+ */
 - (void)updateCellSVM
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-    
-        NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray ];
+    NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray ];
 
-//        NSInteger cell = [self.svm predict:self.RSSIArray];
-        NSInteger cell = [self.svm predict:alphaArray];
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", (int)cell];
-            self.debugTextView.text = @"SVM mode on";
-        });
-    });
+    NSInteger cell = [self.svm predict:alphaArray];
+    self.cellLabel.text = [NSString stringWithFormat:@"Cell %d", (int)cell];
 }
 
+#pragma mark - Bayesian
+/**
+ *  Update cell label according to Bayesian filter results
+ */
 - (void)updateCellAccordingToHighestRSSI
 {
         // Estimate Cell with Filtered RSSI Data (from newly received RSSI info)
         NSArray *alphaArray = [alphaTrMeanFilter processNewRSSIData:RSSIArray];
         [bayesian estimateCellWithRSSIs:alphaArray];
     
-//        [self.bayesian estimateCellWithRSSIs:self.RSSIArray];
         NSInteger highestRSSIDevice = [self deviceIndexWithMaxRSSI];
         NSArray *probsCellsArray = [bayesian getEstimatedProbsAndCells];
         
         NSNumber *cellId = probsCellsArray[highestRSSIDevice][CELL];
     
         cellLabel.text = [NSString stringWithFormat:@"Cell %@", cellId];
-//            debugTextView.text = [NSString
-//                                       stringWithFormat:@"iPad1: [%@, %@]\niPad2: [%@, %@]\niPhone1:[%@, %@]\nPriors:[%@, %@, %@]",
-//                                       probsCellsArray[IPAD1][PROB], probsCellsArray[IPAD1][CELL],
-//                                       probsCellsArray[IPAD2][PROB], probsCellsArray[IPAD2][CELL],
-//                                       probsCellsArray[IPHONE1][PROB], probsCellsArray[IPHONE1][CELL],
-//                                       bayesian.priors[IPAD1], bayesian.priors[IPAD2], bayesian.priors[IPHONE1]];
 }
 
 #pragma mark - iBeacon
+/**
+ *  Add iBeacon devices
+ */
 - (void)addiBeacons
 {
     ibeaconRegioniPad1 = [[MKiBeaconManager alloc] initWithUUID:UUID1 identifier:@"iPad1"];
@@ -154,12 +133,20 @@
     [self monitorRegion:ibeaconRegioniPhone1];
 }
 
+/**
+ *  Start to monitor region
+ *
+ *  @param region
+ */
 - (void)monitorRegion:(CLBeaconRegion *)region
 {
     [locationManager startMonitoringForRegion:region];
     [locationManager startRangingBeaconsInRegion:region];
 }
 
+/**
+ *  Set up iBeacon device info
+ */
 - (void)setupiBeaconData
 {
     if (ibeaconData == nil) {
@@ -197,6 +184,11 @@
     [self setValue:text forKeyPath:iBeaconInfo[@"label"]];
 }
 
+/**
+ *  Update RSSI array value from reading
+ *
+ *  @param beacon
+ */
 - (void)updateRSSIArrayValue:(CLBeacon *)beacon
 {
     NSString *uuid = beacon.proximityUUID.UUIDString;
@@ -219,11 +211,14 @@
 }
 
 #pragma mark - Delegate
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
-    debugTextView.text = [NSString stringWithFormat:@"Entered: %@", region];
-}
 
+/**
+ *  iBeacon region delegation
+ *
+ *  @param manager
+ *  @param beacons
+ *  @param region
+ */
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     if ([beacons count] == 0)
@@ -236,6 +231,7 @@
         // update RSSI array
         [self updateRSSIArrayValue:beacon];
     }
+    /* two modes */
     if (self.svmMode.on == NO) {
         [self updateCellAccordingToHighestRSSI];
     } else {

@@ -65,7 +65,6 @@
     self.barcodeLabel = [[UILabel alloc] init];
     self.barcodeLabel.frame = CGRectMake(0, 20, self.view.bounds.size.width, 40);
     self.barcodeLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-//    self.barcodeLabel.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
     self.barcodeLabel.backgroundColor = [UIColor clearColor];
     self.barcodeLabel.textColor = [UIColor whiteColor];
     self.barcodeLabel.text = @"Scanning";
@@ -110,6 +109,13 @@
 }
 
 #pragma mark - Delegates
+/**
+ *  Barcode scanning delegation
+ *
+ *  @param captureOutput
+ *  @param metadataObjects
+ *  @param connection
+ */
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     CGRect highlightViewRect = CGRectZero;
@@ -141,6 +147,9 @@
 }
 
 #pragma mark - Present ingredients controller
+/**
+ *  Present a new view controller
+ */
 - (void)presentIngredientsController
 {
     MKIngredientsViewController *ingredientsViewController = [[MKIngredientsViewController alloc] init];

@@ -14,7 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *iPad1Label;
 @property (strong, nonatomic) IBOutlet UILabel *iPad2Label;
 @property (strong, nonatomic) IBOutlet UILabel *iPhone1Label;
-@property (strong, nonatomic) IBOutlet UITextView *debugTextView;
 @property (strong, nonatomic) IBOutlet UILabel *cellLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *svmMode;
 @property (strong, nonatomic) IBOutlet UITextField *textFilterLength;
